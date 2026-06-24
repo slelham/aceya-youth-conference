@@ -1,990 +1,757 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Quick reference guide for the 38th Annual ACEYA Youth Conference — Detroit, MI, July 3–8, 2026.">
-  <meta name="theme-color" content="#0f1f3d">
-  <title>ACEYA Youth Conference 2026</title>
+  <meta name="description" content="On-the-go guide for the 38th Annual ACEYA Youth Conference — Detroit, July 3–8, 2026.">
+  <meta name="theme-color" content="#0f1f3d" id="meta-theme">
+  <title>ACEYA Conference</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: {
-              50: '#f0f4fa', 100: '#dce6f3', 200: '#b8cde6', 300: '#8aadd4',
-              400: '#5a89be', 500: '#3a6a9f', 600: '#2a5280', 700: '#1e3d63',
-              800: '#152d4a', 900: '#0f1f3d', 950: '#0a1528',
-            },
-            gold: {
-              50: '#fdf9ef', 100: '#f9f0d6', 200: '#f2deab', 300: '#e8c676',
-              400: '#d4a843', 500: '#c4922e', 600: '#a67424', 700: '#855a20',
-              800: '#6e4922', 900: '#5c3d20',
-            },
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
+    :root, [data-theme="light"] {
+      --bg: #f4f6fa;
+      --surface: #ffffff;
+      --surface-elevated: #ffffff;
+      --text: #0f1f3d;
+      --text-muted: #5a6a80;
+      --text-faint: #8a9bb5;
+      --border: #e2e8f2;
+      --accent: #c4922e;
+      --accent-soft: #fdf9ef;
+      --hero-from: #0f1f3d;
+      --hero-to: #1e3d63;
+      --modal-overlay: rgba(10, 21, 40, 0.55);
+      --pill-bg: #eef2f8;
+      --pill-active: #0f1f3d;
+      --pill-active-text: #f4f6fa;
+      --nav-bg: rgba(255,255,255,0.92);
+      --shadow: 0 1px 3px rgba(15,31,61,0.06);
+      --code-bg: #eef2f8;
     }
+    [data-theme="dark"] {
+      --bg: #0a1528;
+      --surface: #152d4a;
+      --surface-elevated: #1a3558;
+      --text: #eef2f8;
+      --text-muted: #a8b8d0;
+      --text-faint: #7a8faa;
+      --border: #243d5c;
+      --accent: #e8c676;
+      --accent-soft: #2a3f5c;
+      --hero-from: #0f1f3d;
+      --hero-to: #152d4a;
+      --modal-overlay: rgba(0, 0, 0, 0.65);
+      --pill-bg: #1e3d63;
+      --pill-active: #e8c676;
+      --pill-active-text: #0a1528;
+      --nav-bg: rgba(10, 21, 40, 0.94);
+      --shadow: 0 1px 3px rgba(0,0,0,0.25);
+      --code-bg: #1e3d63;
+    }
+    * { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); }
     .modal-open { overflow: hidden; }
-    .card-btn:focus-visible { outline: 2px solid #d4a843; outline-offset: 2px; }
-    .modal-panel { transform: translateY(1rem) scale(0.98); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; }
-    .modal-panel.open { transform: translateY(0) scale(1); opacity: 1; }
+    .card-btn:focus-visible, .icon-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .modal-panel { transform: translateY(1rem); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .modal-panel.open { transform: translateY(0); opacity: 1; }
     .modal-backdrop { opacity: 0; transition: opacity 0.25s ease; }
     .modal-backdrop.open { opacity: 1; }
-    .whats-next-glow { background: linear-gradient(135deg, #0f1f3d 0%, #1e3d63 50%, #152d4a 100%); }
+    .more-sheet { transform: translateY(100%); transition: transform 0.3s ease; }
+    .more-sheet.open { transform: translateY(0); }
+    .more-backdrop { opacity: 0; transition: opacity 0.25s ease; }
+    .more-backdrop.open { opacity: 1; }
+    .theme-pill { background: var(--pill-bg); }
+    .theme-pill button[aria-pressed="true"] { background: var(--pill-active); color: var(--pill-active-text); }
+    .day-tint-0 { background: color-mix(in srgb, #3a6a9f 8%, var(--surface)); }
+    .day-tint-1 { background: color-mix(in srgb, #c4922e 10%, var(--surface)); }
+    .day-tint-2 { background: color-mix(in srgb, #2d8a5e 8%, var(--surface)); }
+    .day-tint-3 { background: color-mix(in srgb, #7c5cbf 8%, var(--surface)); }
+    .day-tint-4 { background: color-mix(in srgb, #c45c2e 8%, var(--surface)); }
+    .day-tint-5 { background: color-mix(in srgb, #5a6a80 8%, var(--surface)); }
+    [data-theme="dark"] .day-tint-0 { background: color-mix(in srgb, #3a6a9f 18%, var(--surface)); }
+    [data-theme="dark"] .day-tint-1 { background: color-mix(in srgb, #c4922e 15%, var(--surface)); }
+    [data-theme="dark"] .day-tint-2 { background: color-mix(in srgb, #2d8a5e 15%, var(--surface)); }
+    [data-theme="dark"] .day-tint-3 { background: color-mix(in srgb, #7c5cbf 15%, var(--surface)); }
+    [data-theme="dark"] .day-tint-4 { background: color-mix(in srgb, #c45c2e 15%, var(--surface)); }
+    [data-theme="dark"] .day-tint-5 { background: color-mix(in srgb, #5a6a80 15%, var(--surface)); }
   </style>
 </head>
-<body class="bg-navy-50 text-navy-900 font-sans antialiased min-h-screen">
+<body class="antialiased min-h-screen pb-24">
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold-400 focus:text-navy-950 focus:rounded-lg focus:font-semibold">Skip to content</a>
+  <div id="app" class="max-w-lg mx-auto"></div>
 
-  <div id="app" class="max-w-3xl mx-auto px-4 sm:px-6 pb-10"></div>
-
+  <!-- Event / info modal -->
   <div id="modal-root" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-backdrop" class="modal-backdrop absolute inset-0 bg-navy-950/60 backdrop-blur-sm" tabindex="-1"></div>
-    <div class="relative flex items-end sm:items-center justify-center min-h-full p-4 sm:p-6 pointer-events-none">
-      <div id="modal-panel" class="modal-panel pointer-events-auto w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
-        <div class="flex items-start justify-between gap-4 px-5 pt-5 pb-3 border-b border-navy-100">
+    <div id="modal-backdrop" class="modal-backdrop absolute inset-0 backdrop-blur-sm" style="background:var(--modal-overlay)" tabindex="-1"></div>
+    <div class="relative flex items-end sm:items-center justify-center min-h-full p-4 pointer-events-none">
+      <div id="modal-panel" class="modal-panel pointer-events-auto w-full max-w-lg rounded-2xl overflow-hidden max-h-[88vh] flex flex-col" style="background:var(--surface);box-shadow:0 25px 50px rgba(0,0,0,0.2)">
+        <div class="flex items-start justify-between gap-3 px-5 pt-5 pb-3" style="border-bottom:1px solid var(--border)">
           <div class="min-w-0">
-            <p id="modal-eyebrow" class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-1"></p>
-            <h2 id="modal-title" class="text-xl font-bold text-navy-900 leading-tight"></h2>
+            <p id="modal-eyebrow" class="text-[11px] font-semibold uppercase tracking-wider mb-1" style="color:var(--accent)"></p>
+            <h2 id="modal-title" class="text-lg font-bold leading-tight"></h2>
           </div>
-          <button id="modal-close" type="button" aria-label="Close dialog"
-            class="shrink-0 w-11 h-11 flex items-center justify-center rounded-xl bg-navy-50 text-navy-600 hover:bg-navy-100 active:bg-navy-200 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
+          <button id="modal-close" type="button" aria-label="Close" class="icon-btn shrink-0 w-11 h-11 flex items-center justify-center rounded-xl" style="background:var(--pill-bg);color:var(--text-muted)">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
-        <div id="modal-body" class="px-5 py-4 overflow-y-auto text-navy-700 leading-relaxed space-y-3"></div>
-        <div id="modal-footer" class="px-5 py-4 border-t border-navy-100 bg-navy-50/50 hidden"></div>
+        <div id="modal-body" class="px-5 py-4 overflow-y-auto leading-relaxed space-y-3" style="color:var(--text-muted)"></div>
       </div>
     </div>
   </div>
 
+  <!-- More sheet -->
+  <div id="more-root" class="fixed inset-0 z-40 hidden" role="dialog" aria-modal="true" aria-label="More information">
+    <div id="more-backdrop" class="more-backdrop absolute inset-0" style="background:var(--modal-overlay)" tabindex="-1"></div>
+    <div class="absolute inset-x-0 bottom-0 max-h-[90vh] flex flex-col rounded-t-2xl overflow-hidden more-sheet" id="more-sheet" style="background:var(--surface)">
+      <div class="flex items-center justify-between px-5 py-4 shrink-0" style="border-bottom:1px solid var(--border)">
+        <h2 class="text-lg font-bold">More</h2>
+        <button id="more-close" type="button" aria-label="Close menu" class="icon-btn w-11 h-11 flex items-center justify-center rounded-xl" style="background:var(--pill-bg);color:var(--text-muted)">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="more-body" class="overflow-y-auto px-4 py-4 pb-8 space-y-6"></div>
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 backdrop-blur-md" style="background:var(--nav-bg);border-top:1px solid var(--border)" aria-label="Main navigation">
+    <div class="max-w-lg mx-auto flex">
+      <button type="button" id="nav-home" class="flex-1 flex flex-col items-center gap-1 py-3 min-h-[56px] font-semibold text-sm" style="color:var(--accent)" aria-current="page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Today
+      </button>
+      <button type="button" id="nav-more" class="flex-1 flex flex-col items-center gap-1 py-3 min-h-[56px] font-medium text-sm" style="color:var(--text-muted)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        More
+      </button>
+    </div>
+  </nav>
+
   <script>
     // ═══════════════════════════════════════════════════════════════════════════
-    //  EDIT ALL CONFERENCE CONTENT HERE — no need to touch HTML below this block
+    //  EDIT ALL CONTENT HERE
     // ═══════════════════════════════════════════════════════════════════════════
     const CONFERENCE_DATA = {
       lastUpdated: 'June 23, 2026',
 
       conference: {
-        name: '38th Annual ACEYA Youth Conference',
-        fullName: '38th Annual Assyrian Church of the East Youth Association Youth Conference',
+        name: 'ACEYA Youth Conference',
+        subtitle: '38th Annual · Detroit',
         dates: 'July 3–8, 2026',
         dateStart: '2026-07-03',
         dateEnd: '2026-07-08',
         location: 'Detroit, MI',
-        venue: 'Host parish & conference facilities — Detroit metro area',
-        theme: 'A week of faith in action',
-        tagline: 'Shaping youth in the image of Christ',
-        organization: 'Assyrian Church of the East Youth Association — North America',
+        defaultVenue: 'Conference campus — see your youth leader for room assignments',
       },
 
-      registration: {
-        status: 'Open',
-        statusNote: 'Registration is open. Have your parish info, contacts, and conference photo ready before you begin.',
-        url: 'https://sites.google.com/view/aceya/home',
-        requirements: [
-          'Youth parish information',
-          'Personal contact details',
-          'Emergency contact information',
-          'Conference photo (headshot)',
-        ],
-        deadline: 'Check the official site for the registration deadline',
-      },
-
-      // ── Event type labels (used in UI badges & dress-code reference) ──────────
       eventTypes: {
-        liturgy:        { label: 'Liturgy',          icon: '⛪' },
-        worship:        { label: 'Worship',          icon: '🙏' },
-        workshop:       { label: 'Workshop',         icon: '📖' },
-        'service-project': { label: 'Service Project', icon: '🤝' },
-        banquet:        { label: 'Banquet',          icon: '✨' },
-        social:         { label: 'Social / Fellowship', icon: '👥' },
-        arrival:        { label: 'Arrival / Check-In', icon: '🧳' },
-        closing:        { label: 'Closing',          icon: '👋' },
+        liturgy:         { label: 'Liturgy' },
+        worship:         { label: 'Worship' },
+        workshop:        { label: 'Workshop' },
+        'service-project': { label: 'Service' },
+        banquet:         { label: 'Banquet' },
+        social:          { label: 'Fellowship' },
+        arrival:         { label: 'Check-In' },
+        closing:         { label: 'Closing' },
       },
 
-      // ── Dress code categories (single source of truth) ───────────────────────
       dressCodeCategories: {
         'church-service': {
           label: 'Modest Formal / Sunday Best',
           shortLabel: 'Sunday Best',
-          icon: '⛪',
-          badgeClass: 'bg-navy-100 text-navy-800 border-navy-200',
-          panelClass: 'bg-navy-50 border-navy-200',
           guidelines: [
-            'Young men: dress pants and collared shirt; jacket optional',
-            'Young women: modest dress or skirt/blouse (knee-length or longer)',
-            'Clean, pressed clothing — sacred time of worship',
-            'Remove hats and hoods during services',
+            'Young men: dress pants and collared shirt',
+            'Young women: modest dress or skirt/blouse (knee-length+)',
+            'Remove hats during services',
           ],
-          avoid: ['Shorts', 'Revealing or tight clothing', 'Hats during worship', 'Distracting graphics on clothing'],
+          avoid: 'Shorts · Revealing clothing · Hats in worship',
         },
         'modest-casual': {
           label: 'Comfortable Modest Casual',
           shortLabel: 'Modest Casual',
-          icon: '👔',
-          badgeClass: 'bg-gold-50 text-gold-900 border-gold-200',
-          panelClass: 'bg-gold-50 border-gold-200',
           guidelines: [
-            'Jeans, khakis, or modest pants with comfortable tops',
+            'Jeans or khakis with modest tops',
             'Shoulders, midriff, and knees covered',
-            'Conference t-shirt welcome if provided',
           ],
-          avoid: ['Crop tops', 'Very short shorts', 'Inappropriate slogans or graphics'],
+          avoid: 'Crop tops · Very short shorts · Inappropriate graphics',
         },
         'casual-activity': {
-          label: 'Activity-Appropriate Modest Clothing',
+          label: 'Activity-Appropriate Modest Wear',
           shortLabel: 'Activity Wear',
-          icon: '👟',
-          badgeClass: 'bg-emerald-50 text-emerald-900 border-emerald-200',
-          panelClass: 'bg-emerald-50 border-emerald-200',
           guidelines: [
-            'Comfortable, modest athletic or casual wear',
-            'Closed-toe shoes required for outdoor/service activities',
-            'Layers for changing weather',
+            'Comfortable modest athletic or casual wear',
+            'Closed-toe shoes required',
           ],
-          avoid: ['Flip-flops (safety hazard)', 'Revealing athletic wear', 'Clothing you cannot move freely in'],
+          avoid: 'Flip-flops · Revealing athletic wear',
         },
         'semi-formal': {
           label: 'Semi-Formal Attire',
           shortLabel: 'Semi-Formal',
-          icon: '✨',
-          badgeClass: 'bg-purple-50 text-purple-900 border-purple-200',
-          panelClass: 'bg-purple-50 border-purple-200',
           guidelines: [
-            'Young men: dress pants, button-down shirt; tie or sport coat optional',
+            'Young men: dress pants and button-down shirt',
             'Young women: semi-formal dress or modest dressy outfit',
-            'Celebrate the evening with polished attire',
           ],
-          avoid: ['Jeans', 'Shorts', 'Sneakers or flip-flops', 'Casual t-shirts'],
+          avoid: 'Jeans · Shorts · Sneakers',
         },
         'travel-casual': {
-          label: 'Travel / Departure Casual',
+          label: 'Travel Casual',
           shortLabel: 'Travel Casual',
-          icon: '🧳',
-          badgeClass: 'bg-slate-100 text-slate-800 border-slate-200',
-          panelClass: 'bg-slate-50 border-slate-200',
-          guidelines: [
-            'Comfortable modest clothing for travel',
-            'Easy to move luggage and belongings',
-          ],
-          avoid: ['Overly formal attire while traveling'],
+          guidelines: ['Comfortable modest clothing for departure'],
+          avoid: 'Overly formal travel attire',
         },
       },
 
-      // ── Quick reference: event type → default dress code category ────────────
       eventTypeDressMap: [
-        { eventType: 'liturgy',         dressCodeCategory: 'church-service',  note: 'Holy Qurbana, morning prayer, all liturgical services' },
-        { eventType: 'worship',         dressCodeCategory: 'church-service',  note: 'Worship nights, opening/closing services' },
-        { eventType: 'workshop',        dressCodeCategory: 'modest-casual',   note: 'Teaching sessions, plenaries, discussion groups' },
-        { eventType: 'service-project', dressCodeCategory: 'casual-activity', note: 'Community outreach & hands-on service' },
-        { eventType: 'banquet',         dressCodeCategory: 'semi-formal',     note: 'Banquet & awards evening' },
-        { eventType: 'social',          dressCodeCategory: 'modest-casual',   note: 'Fellowship, talent night, icebreakers' },
-        { eventType: 'arrival',         dressCodeCategory: 'modest-casual',   note: 'Check-in, orientation, parish meetups' },
-        { eventType: 'closing',         dressCodeCategory: 'church-service',  note: 'Closing liturgy & commissioning' },
+        { eventType: 'liturgy',         dressCodeCategory: 'church-service',  note: 'Holy Qurbana & liturgical services' },
+        { eventType: 'worship',         dressCodeCategory: 'church-service',  note: 'Worship nights & prayer services' },
+        { eventType: 'workshop',        dressCodeCategory: 'modest-casual',   note: 'Sessions, plenaries, discussions' },
+        { eventType: 'service-project', dressCodeCategory: 'casual-activity', note: 'Community service projects' },
+        { eventType: 'banquet',         dressCodeCategory: 'semi-formal',     note: 'Banquet & awards' },
+        { eventType: 'social',          dressCodeCategory: 'modest-casual',   note: 'Fellowship & talent night' },
+        { eventType: 'arrival',         dressCodeCategory: 'modest-casual',   note: 'Check-in & orientation' },
+        { eventType: 'closing',         dressCodeCategory: 'church-service',  note: 'Closing service' },
       ],
 
-      // ── Schedule: each block includes eventType, dressCodeCategory, specificRules
       schedule: [
         {
-          id: 'day1', date: '2026-07-03', dayLabel: 'Thursday',
-          title: 'Arrival & Welcome', summary: 'Check-in, orientation, and opening fellowship',
+          id: 'day1', date: '2026-07-03', dayLabel: 'Thursday', title: 'Arrival & Welcome',
           blocks: [
-            {
-              period: 'Morning', time: '10:00 AM – 12:00 PM', title: 'Arrival & Check-In',
-              detail: 'Register at the welcome desk. Collect your name badge, room assignment, and conference materials. Luggage may be stored if rooms are not yet ready.',
+            { time: '10:00 AM – 12:00 PM', title: 'Arrival & Check-In', location: 'Welcome desk / main lobby',
+              detail: 'Register, collect badge, room assignment, and materials.',
               eventType: 'arrival', dressCodeCategory: 'modest-casual',
-              specificRules: ['Wear comfortable travel clothes', 'Have ID and registration confirmation ready'],
-            },
-            {
-              period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Orientation & Parish Meetups',
-              detail: 'Welcome session for all attendees. Parish groups reconnect and review the week ahead. Free time to settle in and explore the campus.',
+              specificRules: ['Comfortable travel clothes OK', 'Have ID ready'] },
+            { time: '1:00 – 5:00 PM', title: 'Orientation & Parish Meetups', location: 'Main hall',
+              detail: 'Welcome session. Parish groups reconnect and review the week.',
               eventType: 'social', dressCodeCategory: 'modest-casual',
-              specificRules: ['Conference t-shirt welcome if provided by your parish'],
-            },
-            {
-              period: 'Evening', time: '7:00 – 9:30 PM', title: 'Opening Service & Fellowship',
-              detail: 'Opening prayer service to begin the conference in worship. Followed by icebreakers and informal fellowship.',
+              specificRules: ['Conference t-shirt welcome if provided'] },
+            { time: '7:00 – 9:30 PM', title: 'Opening Service & Fellowship', location: 'Church / chapel',
+              detail: 'Opening prayer service, then icebreakers and fellowship.',
               eventType: 'worship', dressCodeCategory: 'church-service',
-              specificRules: ['Modest church-appropriate attire for the opening service', 'Remove hats during worship', 'Casual modest attire OK for fellowship after service'],
-            },
+              specificRules: ['Sunday-best for service', 'Hats off during worship'] },
           ],
         },
         {
-          id: 'day2', date: '2026-07-04', dayLabel: 'Friday',
-          title: 'Faith & Community', summary: 'Workshops, small groups, and evening worship',
+          id: 'day2', date: '2026-07-04', dayLabel: 'Friday', title: 'Faith & Community',
           blocks: [
-            {
-              period: 'Morning', time: '8:30 – 11:30 AM', title: 'Morning Prayer & Workshops',
-              detail: 'Begin with morning prayers. Break into workshop tracks on faith, service, and spiritual growth. Bring your Bible and notebook.',
+            { time: '8:30 – 11:30 AM', title: 'Morning Prayer & Workshops', location: 'Chapel & workshop rooms',
+              detail: 'Morning prayers, then workshop tracks on faith and service.',
               eventType: 'workshop', dressCodeCategory: 'modest-casual',
-              specificRules: ['Morning prayers open the session — dress modestly from the start', 'Bring your Bible and notebook'],
-            },
-            {
-              period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Small Groups & Activities',
-              detail: 'Age-based small group discussions. Outdoor recreation and team-building activities. Stay hydrated — summer weather in Detroit can be warm.',
+              specificRules: ['Dress modestly from the start', 'Bring Bible and notebook'] },
+            { time: '1:00 – 5:00 PM', title: 'Small Groups & Activities', location: 'Outdoor courts & meeting rooms',
+              detail: 'Small group discussions and team-building activities.',
               eventType: 'social', dressCodeCategory: 'casual-activity',
-              specificRules: ['Closed-toe shoes recommended for outdoor activities', 'Sunscreen and water bottle recommended'],
-            },
-            {
-              period: 'Evening', time: '7:00 – 10:00 PM', title: 'Worship Night',
-              detail: 'An evening of worship, testimony, and prayer. A highlight of the conference week.',
+              specificRules: ['Closed-toe shoes for outdoor activities', 'Bring water'] },
+            { time: '7:00 – 10:00 PM', title: 'Worship Night', location: 'Main worship space',
+              detail: 'Evening of worship, testimony, and prayer.',
               eventType: 'worship', dressCodeCategory: 'church-service',
-              specificRules: ['Modest, church-appropriate attire required', 'Cell phones on silent', 'Remove hats during worship'],
-            },
+              specificRules: ['Church-appropriate attire', 'Phones on silent'] },
           ],
         },
         {
-          id: 'day3', date: '2026-07-05', dayLabel: 'Saturday',
-          title: 'Service in Action', summary: 'Community outreach and leadership sessions',
+          id: 'day3', date: '2026-07-05', dayLabel: 'Saturday', title: 'Service in Action',
           blocks: [
-            {
-              period: 'Morning', time: '8:30 – 11:30 AM', title: 'Morning Liturgy & Teaching',
-              detail: 'Holy Qurbana or morning prayer service (per schedule). Teaching session on putting faith into action in daily life.',
+            { time: '8:30 – 11:30 AM', title: 'Morning Liturgy & Teaching', location: 'Church / chapel',
+              detail: 'Holy Qurbana or morning prayer, then teaching session.',
               eventType: 'liturgy', dressCodeCategory: 'church-service',
-              specificRules: ['No shorts during Holy Qurbana', 'All attendees expected at liturgy', 'Hats removed during service'],
-            },
-            {
-              period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Community Service Project',
-              detail: 'Hands-on service activity serving the local community. Wear comfortable clothes and closed-toe shoes.',
+              specificRules: ['No shorts during Holy Qurbana', 'All attendees expected'] },
+            { time: '1:00 – 5:00 PM', title: 'Community Service Project', location: 'Off-site — bus departs main entrance',
+              detail: 'Hands-on service in the local community.',
               eventType: 'service-project', dressCodeCategory: 'casual-activity',
-              specificRules: ['Closed-toe shoes required — no flip-flops', 'Sunscreen recommended', 'Clothing you can work comfortably in'],
-            },
-            {
-              period: 'Evening', time: '7:00 – 9:30 PM', title: 'Talent & Fellowship Night',
-              detail: 'Youth-led talent showcase and fellowship. Support your peers and enjoy an uplifting evening together.',
+              specificRules: ['Closed-toe shoes required', 'Sunscreen recommended'] },
+            { time: '7:00 – 9:30 PM', title: 'Talent & Fellowship Night', location: 'Main hall',
+              detail: 'Youth-led talent showcase and fellowship.',
               eventType: 'social', dressCodeCategory: 'modest-casual',
-              specificRules: ['Modest attire when performing or attending', 'Be encouraging and respectful of all performers'],
-            },
+              specificRules: ['Modest attire when performing'] },
           ],
         },
         {
-          id: 'day4', date: '2026-07-06', dayLabel: 'Sunday',
-          title: 'Day of Worship', summary: 'Sunday liturgy and rest',
+          id: 'day4', date: '2026-07-06', dayLabel: 'Sunday', title: 'Day of Worship',
           blocks: [
-            {
-              period: 'Morning', time: '9:00 AM – 12:00 PM', title: 'Sunday Holy Qurbana',
-              detail: 'The central worship of the conference week. All attendees are expected to attend.',
+            { time: '9:00 AM – 12:00 PM', title: 'Sunday Holy Qurbana', location: 'Church / chapel',
+              detail: 'Central worship of the conference week. All attendees expected.',
               eventType: 'liturgy', dressCodeCategory: 'church-service',
-              specificRules: ['No shorts during Holy Qurbana', 'Sunday best required — see dress code', 'Arrive on time; enter quietly'],
-            },
-            {
-              period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Rest & Reflection',
-              detail: 'A lighter afternoon for rest, personal reflection, journaling, and optional quiet prayer. Small group check-ins available.',
+              specificRules: ['No shorts during Holy Qurbana', 'Sunday best required', 'Arrive on time'] },
+            { time: '1:00 – 5:00 PM', title: 'Rest & Reflection', location: 'Dorms & quiet areas',
+              detail: 'Rest, journaling, optional quiet prayer.',
               eventType: 'social', dressCodeCategory: 'modest-casual',
-              specificRules: ['Quiet, respectful atmosphere in common areas'],
-            },
-            {
-              period: 'Evening', time: '7:00 – 9:00 PM', title: 'Discussion Groups',
-              detail: 'Guided discussions on conference themes. Prepare to share what God has placed on your heart this week.',
+              specificRules: ['Respect quiet hours in dorms'] },
+            { time: '7:00 – 9:00 PM', title: 'Discussion Groups', location: 'Meeting rooms',
+              detail: 'Guided discussions on conference themes.',
               eventType: 'workshop', dressCodeCategory: 'modest-casual',
-              specificRules: ['Bring your journal', 'Participate respectfully in group sharing'],
-            },
+              specificRules: ['Bring your journal'] },
           ],
         },
         {
-          id: 'day5', date: '2026-07-07', dayLabel: 'Monday',
-          title: 'Leadership & Vision', summary: 'Plenary sessions and parish planning',
+          id: 'day5', date: '2026-07-07', dayLabel: 'Monday', title: 'Leadership & Vision',
           blocks: [
-            {
-              period: 'Morning', time: '8:30 – 11:30 AM', title: 'Leadership Plenary',
-              detail: 'Keynote sessions on youth leadership in the Church. Q&A with clergy and youth leaders.',
+            { time: '8:30 – 11:30 AM', title: 'Leadership Plenary', location: 'Main hall',
+              detail: 'Keynotes on youth leadership. Q&A with clergy and leaders.',
               eventType: 'workshop', dressCodeCategory: 'modest-casual',
-              specificRules: ['Bring notebook for notes', 'Modest attire for sessions with clergy present'],
-            },
-            {
-              period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Parish Planning Workshops',
-              detail: 'Parish delegations plan how to carry the conference spirit home. Practical tools for youth ministry throughout the year.',
+              specificRules: ['Bring notebook'] },
+            { time: '1:00 – 5:00 PM', title: 'Parish Planning Workshops', location: 'Breakout rooms',
+              detail: 'Parish delegations plan for the year ahead.',
               eventType: 'workshop', dressCodeCategory: 'modest-casual',
-              specificRules: ['Attend with your parish delegation'],
-            },
-            {
-              period: 'Evening', time: '7:00 – 10:00 PM', title: 'Banquet & Awards',
-              detail: 'Formal conference banquet. Recognition of youth leaders and contributors.',
+              specificRules: ['Attend with your parish group'] },
+            { time: '7:00 – 10:00 PM', title: 'Banquet & Awards', location: 'Banquet hall',
+              detail: 'Formal banquet. Recognition of youth leaders.',
               eventType: 'banquet', dressCodeCategory: 'semi-formal',
-              specificRules: ['No jeans, shorts, or sneakers', 'Semi-formal attire required for all attendees'],
-            },
+              specificRules: ['No jeans, shorts, or sneakers', 'Semi-formal required'] },
           ],
         },
         {
-          id: 'day6', date: '2026-07-08', dayLabel: 'Tuesday',
-          title: 'Closing & Departure', summary: 'Final worship and safe travels home',
+          id: 'day6', date: '2026-07-08', dayLabel: 'Tuesday', title: 'Closing & Departure',
           blocks: [
-            {
-              period: 'Morning', time: '8:30 – 11:00 AM', title: 'Closing Service & Commissioning',
-              detail: 'Final prayer service. Commissioning of youth to live out the week\'s message at home. Tearful goodbyes and photo opportunities.',
+            { time: '8:30 – 11:00 AM', title: 'Closing Service & Commissioning', location: 'Church / chapel',
+              detail: 'Final prayer service and commissioning.',
               eventType: 'closing', dressCodeCategory: 'church-service',
-              specificRules: ['Modest church-appropriate attire', 'Remove hats during service', 'All attendees expected to attend'],
-            },
-            {
-              period: 'Afternoon', time: '11:30 AM – 2:00 PM', title: 'Checkout & Departure',
-              detail: 'Return room keys, collect belongings, and depart safely. Carpools and rides should be arranged in advance.',
+              specificRules: ['All attendees expected', 'Hats off during service'] },
+            { time: '11:30 AM – 2:00 PM', title: 'Checkout & Departure', location: 'Dorms → main lobby',
+              detail: 'Return keys, collect belongings, depart safely.',
               eventType: 'arrival', dressCodeCategory: 'travel-casual',
-              specificRules: ['Clean your room before checkout', 'Double-check for personal belongings'],
-            },
-            {
-              period: 'Evening', time: '—', title: 'Travel Home',
-              detail: 'Safe travels! Stay connected with your parish group and ACEYA throughout the year.',
-              eventType: 'closing', dressCodeCategory: 'travel-casual',
-              specificRules: [],
-            },
+              specificRules: ['Clean room before checkout'] },
           ],
         },
       ],
 
-      // ── General dress code overview cards (tap for full details) ─────────────
       dressCode: [
-        {
-          id: 'general', title: 'General Guidelines', icon: '👔', summary: 'Modest, respectful, and comfortable',
-          detail: `<p>ACEYA is a Christian youth conference. Please dress in a way that honors God, reflects modesty, and allows you to participate fully in worship and activities.</p>
-            <ul class="list-disc pl-5 mt-2 space-y-1">
-              <li>Clothing should cover shoulders, midriff, and knees</li>
-              <li>Avoid overly tight, revealing, or distracting attire</li>
-              <li>Remove hats and hoods during church services</li>
-              <li>When in doubt, choose the more modest option</li>
-              <li>Tap any schedule event to see its specific dress code</li>
-            </ul>`,
-        },
-        {
-          id: 'liturgy', title: 'Church Services', icon: '⛪', summary: 'Modest formal / Sunday best',
-          categoryId: 'church-service',
-        },
-        {
-          id: 'casual', title: 'Casual Days & Activities', icon: '👟', summary: 'Comfortable and activity-ready',
-          categoryId: 'modest-casual',
-        },
-        {
-          id: 'banquet', title: 'Banquet Evening', icon: '✨', summary: 'Semi-formal attire',
-          categoryId: 'semi-formal',
-        },
-        {
-          id: 'avoid', title: 'Please Avoid', icon: '🚫', summary: 'Items not appropriate for conference',
-          detail: `<ul class="list-disc pl-5 space-y-1">
-              <li>Clothing with inappropriate graphics, slogans, or messaging</li>
-              <li>Revealing necklines, crop tops, or very short shorts</li>
-              <li>Flip-flops during service projects (safety hazard)</li>
-              <li>Excessive jewelry or accessories that distract in worship</li>
-            </ul>
-            <p class="mt-3 text-sm text-navy-500">Youth leaders may ask attendees to change if attire is not conference-appropriate.</p>`,
-        },
+        { title: 'General Guidelines', summary: 'Modest, respectful, comfortable',
+          detail: `<p>Dress to honor God and participate fully. When in doubt, choose the more modest option.</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1"><li>Cover shoulders, midriff, and knees</li><li>Remove hats during services</li><li>Tap any event for specific dress code</li></ul>` },
+        { title: 'Church Services', summary: 'Sunday best', categoryId: 'church-service' },
+        { title: 'Casual & Activities', summary: 'Modest casual / activity wear', categoryId: 'modest-casual' },
+        { title: 'Banquet', summary: 'Semi-formal', categoryId: 'semi-formal' },
+        { title: 'Please Avoid', summary: 'Not appropriate for conference',
+          detail: `<ul class="list-disc pl-5 space-y-1"><li>Inappropriate graphics or slogans</li><li>Revealing or very short clothing</li><li>Flip-flops at service projects</li></ul>` },
       ],
 
       keyInfo: [
-        {
-          id: 'accommodations', title: 'Accommodations', icon: '🏨', summary: 'Lodging details for the week',
-          detail: `<p>Conference lodging is arranged through your parish delegation. Room assignments and check-in details will be provided by your youth leader before arrival.</p>
-            <ul class="list-disc pl-5 mt-2 space-y-1">
-              <li>Bring bedding or sleeping bag if instructed by your parish</li>
-              <li>Respect quiet hours (typically 11:00 PM – 7:00 AM)</li>
-              <li>Keep rooms clean — you may be responsible for damages</li>
-              <li>Do not switch rooms without leader approval</li>
-            </ul>
-            <p class="mt-3 text-sm text-navy-500 italic">Update this section with your specific hotel/dorm name and address when confirmed.</p>`,
-        },
-        {
-          id: 'bring', title: 'What to Bring', icon: '🎒', summary: 'Essential packing list',
-          detail: `<ul class="list-disc pl-5 space-y-1">
-              <li>Bible and notebook/journal</li>
-              <li>Modest clothing for all dress code categories (Sunday best, casual, semi-formal)</li>
-              <li>Closed-toe shoes for service projects</li>
-              <li>Personal toiletries and medications</li>
-              <li>Reusable water bottle</li>
-              <li>Phone charger and power bank</li>
-              <li>Sunscreen and insect repellent</li>
-              <li>Spending money for snacks and souvenirs</li>
-              <li>Positive attitude and an open heart</li>
-            </ul>`,
-        },
-        {
-          id: 'registration-info', title: 'Registration', icon: '📋', summary: 'Open — register through the official site',
-          detail: `<p>Registration is handled online. Before you begin, have the following ready:</p>
-            <ul class="list-disc pl-5 mt-2 space-y-1">
-              <li>Youth parish information</li>
-              <li>Personal contact details</li>
-              <li>Emergency contact information</li>
-              <li>Conference photo (headshot)</li>
-            </ul>
-            <p class="mt-3">Register at the official ACEYA conference page. Contact your parish youth leader if you need help.</p>`,
-        },
-        {
-          id: 'notes', title: 'Important Notes', icon: '📌', summary: 'Policies and expectations',
-          detail: `<ul class="list-disc pl-5 space-y-1">
-              <li>All attendees are expected to attend worship services</li>
-              <li>Follow your parish youth leader\'s guidance at all times</li>
-              <li>No alcohol, drugs, or vaping — conference is substance-free</li>
-              <li>Be respectful of clergy, volunteers, and fellow attendees</li>
-              <li>Cell phones on silent during services and sessions</li>
-              <li>Report any concerns immediately to a youth leader</li>
-            </ul>
-            <p class="mt-3 text-sm text-navy-500 italic">Add venue-specific rules, meal info, or transportation details here as they are confirmed.</p>`,
-        },
+        { title: 'Accommodations', summary: 'Lodging through your parish',
+          detail: `<p>Room assignments from your youth leader. Respect quiet hours (11 PM – 7 AM). Do not switch rooms without approval.</p>` },
+        { title: 'What to Bring', summary: 'Packing essentials',
+          detail: `<ul class="list-disc pl-5 space-y-1"><li>Bible and journal</li><li>Sunday best, casual, and semi-formal clothing</li><li>Closed-toe shoes</li><li>Water bottle, charger, sunscreen</li><li>Medications and toiletries</li></ul>` },
+        { title: 'Important Notes', summary: 'Policies & expectations',
+          detail: `<ul class="list-disc pl-5 space-y-1"><li>Attend all worship services</li><li>Follow youth leader guidance</li><li>Substance-free conference</li><li>Phones silent during services</li><li>Emergency: call 911, then notify your leader</li></ul>` },
       ],
 
       quickLinks: [
-        { id: 'register', title: 'Register Now', icon: '✅', summary: 'Official registration page', url: 'https://sites.google.com/view/aceya/home', external: true },
-        { id: 'official', title: 'ACEYA Official Site', icon: '🌐', summary: 'aceya.net — news, galleries & more', url: 'https://www.aceya.net/', external: true },
-        { id: 'conference-page', title: 'Conference Info Page', icon: '📄', summary: 'Registration requirements & details', url: 'https://www.aceya.net/conference', external: true },
-        {
-          id: 'contact', title: 'Contact & Emergency', icon: '📞', summary: 'Reach ACEYA leadership',
-          detail: `<p><strong>ACEYA North America</strong></p>
-            <p class="mt-2">For conference questions, contact your parish youth leader first. For general ACEYA inquiries, visit <a href="https://www.aceya.net/" class="text-gold-700 underline font-medium" target="_blank" rel="noopener">aceya.net</a> or message through official ACEYA social channels.</p>
-            <p class="mt-3"><strong>In an emergency:</strong> Call 911, then notify your youth leader immediately.</p>
-            <p class="mt-3 text-sm text-navy-500 italic">Add on-site emergency contact numbers and medical staff info when available.</p>`,
-        },
+        { title: 'ACEYA Official Site', url: 'https://www.aceya.net/' },
+        { title: 'Conference Info', url: 'https://www.aceya.net/conference' },
+        { title: 'Contact', detail: `<p>Contact your parish youth leader first. Visit <a href="https://www.aceya.net/" class="underline font-medium" style="color:var(--accent)" target="_blank" rel="noopener">aceya.net</a> for general inquiries.</p><p class="mt-2"><strong>Emergency:</strong> 911, then your youth leader.</p>` },
       ],
     };
     // ═══════════════════════════════════════════════════════════════════════════
-    //  END OF EDITABLE DATA — application logic below
-    // ═══════════════════════════════════════════════════════════════════════════
 
-    const $ = (sel) => document.querySelector(sel);
+    const $ = (s) => document.querySelector(s);
     const app = $('#app');
-    const modalRoot = $('#modal-root');
-    const modalBackdrop = $('#modal-backdrop');
-    const modalPanel = $('#modal-panel');
-    const modalEyebrow = $('#modal-eyebrow');
-    const modalTitle = $('#modal-title');
-    const modalBody = $('#modal-body');
-    const modalFooter = $('#modal-footer');
     let lastFocus = null;
-    let selectedDayIndex = null;
 
+    // ── Theme ──────────────────────────────────────────────────────────────────
+    function getTheme() {
+      return localStorage.getItem('aceya-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+    function setTheme(t) {
+      document.documentElement.dataset.theme = t;
+      localStorage.setItem('aceya-theme', t);
+      $('#meta-theme').content = t === 'dark' ? '#0a1528' : '#0f1f3d';
+      renderHeaderControls();
+    }
+
+    // ── Helpers ────────────────────────────────────────────────────────────────
     function parseDate(str) {
       const [y, m, d] = str.split('-').map(Number);
       return new Date(y, m - 1, d);
     }
-
-    function formatDateLong(str) {
-      return parseDate(str).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    function todayStr() {
+      const n = new Date();
+      return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
     }
-
-    function getDressCategory(block) {
-      return CONFERENCE_DATA.dressCodeCategories[block.dressCodeCategory] || null;
+    function getDressCat(block) {
+      return CONFERENCE_DATA.dressCodeCategories[block.dressCodeCategory];
     }
-
-    function getEventType(block) {
-      return CONFERENCE_DATA.eventTypes[block.eventType] || { label: block.eventType, icon: '📅' };
-    }
-
     function getRules(block) {
-      return Array.isArray(block.specificRules) ? block.specificRules.filter(Boolean) : [];
+      return (block.specificRules || []).filter(Boolean);
     }
 
-    function renderDressBadge(block, compact = false) {
-      const cat = getDressCategory(block);
-      if (!cat) return '';
-      const cls = compact ? 'text-[10px] px-1.5 py-0.5' : 'text-xs px-2 py-0.5';
-      return `<span class="inline-flex items-center gap-1 ${cls} rounded-md border font-semibold ${cat.badgeClass}">
-        <span aria-hidden="true">${cat.icon}</span>${cat.shortLabel}
-      </span>`;
+    function getAllEvents() {
+      return CONFERENCE_DATA.schedule.flatMap((day, dayIdx) =>
+        day.blocks.map((block, blockIdx) => ({ day, dayIdx, block, blockIdx }))
+      );
     }
 
-    function renderDressPanel(block, { dark = false, compact = false } = {}) {
-      const cat = getDressCategory(block);
-      const evt = getEventType(block);
-      const rules = getRules(block);
-      if (!cat) return '';
-
-      const bg = dark
-        ? 'bg-white/10 border-white/20 text-white'
-        : `${cat.panelClass} border`;
-      const titleCls = dark ? 'text-gold-300' : 'text-navy-900';
-      const textCls = dark ? 'text-navy-100' : 'text-navy-700';
-      const avoidCls = dark ? 'text-gold-200/80' : 'text-navy-500';
-      const pad = compact ? 'p-3' : 'p-4';
-      const rulesHtml = rules.length
-        ? `<ul class="mt-2 space-y-1 ${compact ? 'text-xs' : 'text-sm'} ${textCls}">
-            ${rules.map((r) => `<li class="flex gap-2"><span class="text-gold-500 shrink-0" aria-hidden="true">•</span><span>${r}</span></li>`).join('')}
-          </ul>`
-        : '';
-      const guidelinesHtml = !compact
-        ? `<ul class="mt-2 space-y-1 text-sm ${textCls}">
-            ${cat.guidelines.map((g) => `<li class="flex gap-2"><span class="text-gold-600 shrink-0" aria-hidden="true">✓</span><span>${g}</span></li>`).join('')}
-          </ul>`
-        : '';
-      const avoidHtml = cat.avoid?.length && !compact
-        ? `<p class="mt-3 text-xs font-semibold uppercase tracking-wide ${avoidCls}">Please avoid</p>
-           <p class="mt-1 text-xs ${avoidCls}">${cat.avoid.join(' · ')}</p>`
-        : '';
-
-      return `
-        <div class="${pad} rounded-xl border ${bg}">
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-lg" aria-hidden="true">${cat.icon}</span>
-            <div class="min-w-0 flex-1">
-              <p class="text-[10px] font-bold uppercase tracking-wider ${dark ? 'text-gold-400' : 'text-gold-700'}">What to Wear</p>
-              <p class="font-semibold ${compact ? 'text-sm' : 'text-base'} ${titleCls}">${cat.label}</p>
-            </div>
-            <span class="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-md ${dark ? 'bg-white/10 text-gold-200' : 'bg-white/60 text-navy-600'}">
-              <span aria-hidden="true">${evt.icon}</span>${evt.label}
-            </span>
-          </div>
-          ${guidelinesHtml}
-          ${rules.length ? `<p class="mt-2 text-[10px] font-bold uppercase tracking-wider ${dark ? 'text-gold-400' : 'text-gold-700'}">Event-specific rules</p>` : ''}
-          ${rulesHtml}
-          ${avoidHtml}
-        </div>`;
+    function parseBlockHour(time) {
+      const m = time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (!m) return null;
+      let h = parseInt(m[1], 10);
+      if (m[3].toUpperCase() === 'PM' && h !== 12) h += 12;
+      if (m[3].toUpperCase() === 'AM' && h === 12) h = 0;
+      return h;
     }
 
-    function renderEventModalBody(block, day) {
-      return `
-        <p class="text-sm font-medium text-gold-700">${block.period} · ${block.time}</p>
-        <p class="mt-2">${block.detail}</p>
-        ${day ? `<p class="mt-3 text-sm text-navy-500">${day.summary}</p>` : ''}
-        <div class="mt-4">${renderDressPanel(block)}</div>`;
+    function getNextEvent() {
+      const now = new Date();
+      const phase = getPhase();
+      const events = getAllEvents().filter((e) => e.block.time !== '—');
+
+      if (phase === 'before') return events[0];
+      if (phase === 'after') return events[events.length - 1];
+
+      const ts = todayStr();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const nowMins = hour * 60 + minute;
+
+      const todayEvents = events.filter((e) => e.day.date === ts);
+      if (!todayEvents.length) {
+        const future = events.find((e) => e.day.date > ts);
+        return future || events[events.length - 1];
+      }
+
+      for (const ev of todayEvents) {
+        const startH = parseBlockHour(ev.block.time);
+        if (startH !== null && startH * 60 > nowMins) return ev;
+      }
+      const tomorrow = events.find((e) => e.day.date > ts);
+      return tomorrow || todayEvents[todayEvents.length - 1];
     }
 
-    function renderDayBlockSummary(block) {
-      const cat = getDressCategory(block);
-      return `
-        <div class="py-3 border-b border-navy-100 last:border-0">
-          <div class="flex items-start justify-between gap-2 flex-wrap">
-            <p class="text-xs font-semibold text-gold-700 uppercase">${block.period} · ${block.time}</p>
-            ${cat ? renderDressBadge(block, true) : ''}
-          </div>
-          <p class="font-semibold text-navy-900 mt-0.5">${block.title}</p>
-          <p class="text-sm mt-1">${block.detail}</p>
-          ${renderDressPanel(block, { compact: true })}
-        </div>`;
-    }
-
-    function getConferencePhase() {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const start = parseDate(CONFERENCE_DATA.conference.dateStart);
-      const end = parseDate(CONFERENCE_DATA.conference.dateEnd);
-      end.setHours(23, 59, 59, 999);
-      if (today < start) return 'before';
-      if (today > end) return 'after';
+    function getPhase() {
+      const t = new Date(); t.setHours(0, 0, 0, 0);
+      const s = parseDate(CONFERENCE_DATA.conference.dateStart);
+      const e = parseDate(CONFERENCE_DATA.conference.dateEnd); e.setHours(23, 59, 59, 999);
+      if (t < s) return 'before';
+      if (t > e) return 'after';
       return 'during';
     }
 
-    function getActiveDayIndex() {
-      const phase = getConferencePhase();
-      if (phase === 'before') return 0;
-      if (phase === 'after') return CONFERENCE_DATA.schedule.length - 1;
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const idx = CONFERENCE_DATA.schedule.findIndex((day) => parseDate(day.date).getTime() === today.getTime());
-      return idx >= 0 ? idx : 0;
+    // ── Dress UI fragments ───────────────────────────────────────────────────
+    function dressBadge(block) {
+      const c = getDressCat(block);
+      if (!c) return '';
+      return `<span class="inline-block text-[11px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-md" style="background:var(--accent-soft);color:var(--accent)">${c.shortLabel}</span>`;
     }
 
-    function getFeaturedBlock(day, now, phase) {
-      if (phase === 'before') return day.blocks.find((b) => b.period === 'Evening') || day.blocks[0];
-      if (phase === 'after') return day.blocks[0];
-      const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      if (day.date !== todayStr) return day.blocks[0];
-      const hour = now.getHours();
-      if (hour >= 17) return day.blocks.find((b) => b.period === 'Evening' && b.time !== '—') || day.blocks.find((b) => b.period === 'Evening') || day.blocks[2];
-      if (hour >= 12) return day.blocks.find((b) => b.period === 'Afternoon') || day.blocks[1];
-      return day.blocks.find((b) => b.period === 'Morning') || day.blocks[0];
+    function dressBlock(block, { compact = false, onDark = false } = {}) {
+      const c = getDressCat(block);
+      const rules = getRules(block);
+      if (!c) return '';
+      const rulesHtml = rules.length
+        ? `<ul class="mt-1.5 space-y-0.5 ${compact ? 'text-xs' : 'text-sm'}">${rules.map((r) => `<li class="flex gap-1.5"><span style="color:var(--accent)">•</span>${r}</li>`).join('')}</ul>`
+        : '';
+      const guideHtml = compact ? '' : `<ul class="mt-2 space-y-0.5 text-sm">${c.guidelines.map((g) => `<li class="flex gap-1.5"><span style="color:var(--accent)">✓</span>${g}</li>`).join('')}</ul><p class="mt-2 text-xs" style="color:var(--text-faint)"><strong>Avoid:</strong> ${c.avoid}</p>`;
+      const bg = onDark ? 'rgba(255,255,255,0.08)' : 'var(--accent-soft)';
+      const border = onDark ? 'rgba(255,255,255,0.12)' : 'transparent';
+      return `
+        <div class="rounded-xl p-3 ${compact ? '' : 'mt-3'}" style="background:${bg};border:1px solid ${border}">
+          <p class="text-[10px] font-bold uppercase tracking-wider" style="color:var(--accent)">What to wear</p>
+          <p class="font-semibold ${compact ? 'text-sm' : 'text-base'} mt-0.5">${c.label}</p>
+          ${guideHtml}
+          ${rules.length && compact ? `<p class="text-[10px] font-bold uppercase tracking-wider mt-2" style="color:var(--accent)">Notes</p>` : ''}
+          ${rulesHtml}
+        </div>`;
     }
 
-    function getWhatsNext() {
-      const phase = getConferencePhase();
-      const dayIdx = selectedDayIndex !== null ? selectedDayIndex : getActiveDayIndex();
-      const day = CONFERENCE_DATA.schedule[dayIdx];
-      const now = new Date();
-      const featured = getFeaturedBlock(day, now, phase);
-      const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      const isToday = day.date === todayStr;
-
-      if (phase === 'before') {
-        return { phase, day, dayIdx, headline: 'Conference begins soon', subline: `${day.dayLabel}, ${formatDateLong(day.date)}`, featured, badge: 'Upcoming' };
-      }
-      if (phase === 'after') {
-        return { phase, day, dayIdx, headline: 'Conference has concluded', subline: 'Thank you for a blessed week', featured, badge: 'Completed' };
-      }
-      return {
-        phase, day, dayIdx, featured,
-        headline: isToday ? `Today — ${day.title}` : `${day.dayLabel} — ${day.title}`,
-        subline: formatDateLong(day.date),
-        badge: isToday ? 'Today' : day.dayLabel,
-      };
+    function eventModalBody(block, day) {
+      const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
+      return `
+        <p class="text-sm font-semibold" style="color:var(--accent)">${block.time}</p>
+        <p class="mt-3 flex items-start gap-2 text-sm font-medium">
+          <svg class="w-4 h-4 shrink-0 mt-0.5" style="color:var(--accent)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          ${loc}
+        </p>
+        <p class="mt-3">${block.detail}</p>
+        ${dressBlock(block)}`;
     }
 
-    function openModal({ eyebrow, title, bodyHtml, footerHtml }) {
+    // ── Modals ─────────────────────────────────────────────────────────────────
+    function openModal({ eyebrow, title, body }) {
       lastFocus = document.activeElement;
-      modalEyebrow.textContent = eyebrow || '';
-      modalEyebrow.classList.toggle('hidden', !eyebrow);
-      modalTitle.textContent = title;
-      modalBody.innerHTML = bodyHtml;
-      if (footerHtml) {
-        modalFooter.innerHTML = footerHtml;
-        modalFooter.classList.remove('hidden');
-      } else {
-        modalFooter.classList.add('hidden');
-        modalFooter.innerHTML = '';
-      }
-      modalRoot.classList.remove('hidden');
+      $('#modal-eyebrow').textContent = eyebrow || '';
+      $('#modal-eyebrow').classList.toggle('hidden', !eyebrow);
+      $('#modal-title').textContent = title;
+      $('#modal-body').innerHTML = body;
+      $('#modal-root').classList.remove('hidden');
       document.body.classList.add('modal-open');
       requestAnimationFrame(() => {
-        modalBackdrop.classList.add('open');
-        modalPanel.classList.add('open');
+        $('#modal-backdrop').classList.add('open');
+        $('#modal-panel').classList.add('open');
       });
       $('#modal-close').focus();
     }
-
     function closeModal() {
-      modalBackdrop.classList.remove('open');
-      modalPanel.classList.remove('open');
+      $('#modal-backdrop').classList.remove('open');
+      $('#modal-panel').classList.remove('open');
       setTimeout(() => {
-        modalRoot.classList.add('hidden');
+        $('#modal-root').classList.add('hidden');
         document.body.classList.remove('modal-open');
-        if (lastFocus) lastFocus.focus();
+        lastFocus?.focus();
       }, 250);
     }
 
-    function cardButton(attrs, innerHtml) {
-      return `<button type="button" class="card-btn w-full text-left bg-white rounded-2xl border border-navy-100 p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-gold-300 active:scale-[0.99] transition-all duration-200 ${attrs.class || ''}" ${attrs.data || ''} aria-label="${attrs.aria || ''}">${innerHtml}</button>`;
+    function openMore() {
+      $('#more-body').innerHTML = renderMoreContent();
+      bindMoreEvents();
+      $('#more-root').classList.remove('hidden');
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(() => {
+        $('#more-backdrop').classList.add('open');
+        $('#more-sheet').classList.add('open');
+      });
+      $('#nav-more').style.color = 'var(--accent)';
+      $('#nav-home').style.color = 'var(--text-muted)';
+    }
+    function closeMore() {
+      $('#more-backdrop').classList.remove('open');
+      $('#more-sheet').classList.remove('open');
+      setTimeout(() => {
+        $('#more-root').classList.add('hidden');
+        if ($('#modal-root').classList.contains('hidden')) document.body.classList.remove('modal-open');
+      }, 300);
+      $('#nav-home').style.color = 'var(--accent)';
+      $('#nav-more').style.color = 'var(--text-muted)';
     }
 
-    function periodIcon(period) {
-      return { Morning: '🌅', Afternoon: '☀️', Evening: '🌙' }[period] || '📅';
-    }
-
-    function renderHeader() {
-      const c = CONFERENCE_DATA.conference;
-      return `
-        <header class="pt-6 pb-4 text-center">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-100 text-gold-800 text-xs font-semibold uppercase tracking-wider mb-4">
-            <span class="w-2 h-2 rounded-full bg-gold-500"></span>${c.organization}
-          </div>
-          <h1 class="text-2xl sm:text-3xl font-bold text-navy-900 leading-tight">${c.name}</h1>
-          <p class="mt-2 text-navy-600 text-sm sm:text-base">${c.fullName}</p>
-          <div class="mt-4 flex flex-wrap items-center justify-center gap-3 text-sm font-medium">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-navy-100 text-navy-800">
-              <svg class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>${c.dates}
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-navy-100 text-navy-800">
-              <svg class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${c.location}
-            </span>
-          </div>
-          <p class="mt-4 text-lg sm:text-xl font-semibold text-gold-700">"${c.theme}"</p>
-          <p class="mt-1 text-sm text-navy-500">${c.tagline}</p>
-        </header>`;
+    // ── Render ─────────────────────────────────────────────────────────────────
+    function renderHeaderControls() {
+      const theme = getTheme();
+      const el = $('#header-controls');
+      if (!el) return;
+      el.innerHTML = `
+        <div class="theme-pill flex rounded-full p-0.5 text-[11px] font-semibold">
+          <button type="button" data-theme-set="light" aria-pressed="${theme === 'light'}" class="px-2.5 py-1 rounded-full min-w-[44px] min-h-[32px]">Day</button>
+          <button type="button" data-theme-set="dark" aria-pressed="${theme === 'dark'}" class="px-2.5 py-1 rounded-full min-w-[44px] min-h-[32px]">Night</button>
+        </div>`;
+      el.querySelectorAll('[data-theme-set]').forEach((btn) => {
+        btn.addEventListener('click', () => setTheme(btn.dataset.themeSet));
+      });
     }
 
     function renderWhatsNext() {
-      const w = getWhatsNext();
-      const reg = CONFERENCE_DATA.registration;
-      const dayOptions = CONFERENCE_DATA.schedule.map((d, i) =>
-        `<option value="${i}" ${i === w.dayIdx ? 'selected' : ''}>${d.dayLabel} — ${d.title}</option>`
-      ).join('');
+      const next = getNextEvent();
+      const { day, block } = next;
+      const phase = getPhase();
+      const badge = phase === 'before' ? 'Upcoming' : phase === 'after' ? 'Ended' : day.date === todayStr() ? 'Up next' : day.dayLabel;
+      const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
 
       return `
-        <section class="mb-6" aria-labelledby="whats-next-heading">
-          <div class="whats-next-glow rounded-2xl p-5 sm:p-6 text-white shadow-lg">
-            <div class="flex items-center justify-between gap-3 mb-3">
-              <h2 id="whats-next-heading" class="text-sm font-semibold uppercase tracking-wider text-gold-300">What's Next</h2>
-              <span class="px-2.5 py-1 rounded-lg bg-gold-500/20 text-gold-200 text-xs font-bold uppercase tracking-wide">${w.badge}</span>
+        <section class="mb-5" aria-labelledby="whats-next">
+          <div class="rounded-2xl p-5 text-white overflow-hidden" style="background:linear-gradient(145deg,var(--hero-from),var(--hero-to));box-shadow:var(--shadow)">
+            <div class="flex items-center justify-between mb-3">
+              <h2 id="whats-next" class="text-xs font-bold uppercase tracking-widest opacity-80">What's Next</h2>
+              <span class="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-md" style="background:rgba(255,255,255,0.15)">${badge}</span>
             </div>
-            <p class="text-xl sm:text-2xl font-bold leading-tight">${w.headline}</p>
-            <p class="mt-1 text-navy-200 text-sm">${w.subline}</p>
-
-            <div class="mt-4 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/10">
-              <div class="flex items-start gap-3">
-                <span class="text-2xl" aria-hidden="true">${periodIcon(w.featured.period)}</span>
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <p class="text-gold-300 text-xs font-semibold uppercase tracking-wide">${w.featured.period} · ${w.featured.time}</p>
-                    ${renderDressBadge(w.featured, true)}
-                  </div>
-                  <p class="mt-0.5 font-semibold text-lg">${w.featured.title}</p>
-                  <p class="mt-1 text-sm text-navy-200 line-clamp-2">${w.featured.detail}</p>
-                </div>
-              </div>
-              <div class="mt-3">${renderDressPanel(w.featured, { dark: true, compact: true })}</div>
-              <button type="button" data-action="whats-next-detail"
-                class="mt-3 w-full sm:w-auto px-4 py-2.5 min-h-[44px] rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold text-sm transition-colors">
-                Full event details
-              </button>
-            </div>
-
-            <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-2">
-              <label for="day-select" class="text-xs text-navy-300 shrink-0">Browse by day:</label>
-              <select id="day-select" class="flex-1 min-h-[44px] px-3 py-2 rounded-xl bg-navy-800 border border-navy-600 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gold-400">${dayOptions}</select>
-            </div>
-
-            ${w.phase === 'before' ? `
-              <div class="mt-4 flex items-center gap-2 px-3 py-2 rounded-xl bg-gold-500/15 border border-gold-400/20">
-                <span class="text-gold-300 text-sm font-medium">Registration: ${reg.status}</span>
-                <a href="${reg.url}" target="_blank" rel="noopener" class="ml-auto text-xs font-semibold text-gold-300 underline hover:text-gold-200">Register →</a>
-              </div>` : ''}
+            <p class="text-2xl font-bold leading-tight">${block.title}</p>
+            <p class="mt-1 text-sm opacity-75">${block.time} · ${day.dayLabel}</p>
+            <p class="mt-3 text-sm opacity-90 leading-snug">${block.detail}</p>
+            <p class="mt-3 flex items-start gap-2 text-sm font-medium" style="color:var(--accent)">
+              <svg class="w-4 h-4 shrink-0 mt-0.5 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span class="text-white">${loc}</span>
+            </p>
+            ${dressBlock(block, { compact: true, onDark: true })}
+            <button type="button" data-action="next-detail" class="mt-4 w-full min-h-[44px] rounded-xl text-sm font-bold" style="background:var(--accent);color:#0a1528">
+              Full details
+            </button>
           </div>
         </section>`;
     }
 
     function renderSchedule() {
-      const cards = CONFERENCE_DATA.schedule.map((day, dayIdx) => {
-        const blockCards = day.blocks
-          .map((block, blockIdx) => ({ block, blockIdx }))
-          .filter(({ block }) => block.period !== 'Evening' || block.time !== '—')
-          .map(({ block, blockIdx }) =>
-            cardButton(
-              { class: '!p-3.5', data: `data-action="schedule-block" data-day="${dayIdx}" data-block="${blockIdx}"`, aria: `${day.dayLabel} ${block.period}: ${block.title}. Dress: ${getDressCategory(block)?.shortLabel || ''}` },
-              `<div class="flex items-center gap-3">
-                <span class="text-xl shrink-0" aria-hidden="true">${periodIcon(block.period)}</span>
+      const days = CONFERENCE_DATA.schedule.map((day, dayIdx) => {
+        const tint = `day-tint-${dayIdx % 6}`;
+        const events = day.blocks
+          .filter((b) => b.time !== '—')
+          .map((block, blockIdx) => `
+            <button type="button" data-action="event" data-day="${dayIdx}" data-block="${blockIdx}"
+              class="card-btn w-full text-left p-4 rounded-xl min-h-[56px] active:scale-[0.99] transition-transform"
+              style="background:var(--surface-elevated);border:1px solid var(--border);box-shadow:var(--shadow)"
+              aria-label="${block.title}, ${block.time}">
+              <div class="flex items-start justify-between gap-2">
                 <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-1.5 flex-wrap">
-                    <p class="text-xs font-semibold text-gold-700 uppercase tracking-wide">${block.period}</p>
-                    ${renderDressBadge(block, true)}
-                  </div>
-                  <p class="font-semibold text-navy-900 text-sm leading-snug">${block.title}</p>
-                  <p class="text-xs text-navy-500 mt-0.5">${block.time}</p>
+                  <p class="text-xs font-medium" style="color:var(--text-faint)">${block.time}</p>
+                  <p class="font-semibold mt-0.5 leading-snug">${block.title}</p>
+                  <p class="text-xs mt-1 truncate" style="color:var(--text-muted)">${block.location || CONFERENCE_DATA.conference.defaultVenue}</p>
                 </div>
-                <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </div>`
-            )
-          ).join('');
+                <div class="shrink-0 flex flex-col items-end gap-1">
+                  ${dressBadge(block)}
+                  <svg class="w-4 h-4" style="color:var(--text-faint)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </button>`).join('');
 
-        const dayBtn = cardButton(
-          { data: `data-action="schedule-day" data-day="${dayIdx}"`, aria: `View full schedule for ${day.dayLabel}` },
-          `<div class="flex items-center gap-3 mb-3 pb-3 border-b border-navy-50">
-            <div class="w-10 h-10 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-sm shrink-0">${day.dayLabel.slice(0, 3)}</div>
-            <div class="min-w-0"><p class="font-bold text-navy-900">${day.dayLabel}</p><p class="text-sm text-navy-600">${day.title}</p></div>
-          </div><div class="space-y-2">${blockCards}</div>`
-        );
-        return `<div class="col-span-1">${dayBtn}</div>`;
-      }).join('');
-
-      return `
-        <section class="mb-8" aria-labelledby="schedule-heading">
-          <h2 id="schedule-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
-            <span class="w-1 h-5 rounded-full bg-gold-500"></span>Schedule Overview
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
-        </section>`;
-    }
-
-    function renderDressCodeSection() {
-      const overviewCards = CONFERENCE_DATA.dressCode.map((item, idx) =>
-        cardButton(
-          { data: `data-action="dress-code" data-index="${idx}"`, aria: `${item.title}: ${item.summary}` },
-          `<div class="flex items-center gap-3">
-            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-navy-50" aria-hidden="true">${item.icon}</span>
-            <div class="min-w-0 flex-1">
-              <p class="font-semibold text-navy-900">${item.title}</p>
-              <p class="text-sm text-navy-500 mt-0.5">${item.summary}</p>
-            </div>
-            <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>`
-        )
-      ).join('');
-
-      const mapRows = CONFERENCE_DATA.eventTypeDressMap.map((row) => {
-        const evt = CONFERENCE_DATA.eventTypes[row.eventType];
-        const cat = CONFERENCE_DATA.dressCodeCategories[row.dressCodeCategory];
         return `
-          <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-navy-100">
-            <span class="text-lg w-8 text-center shrink-0" aria-hidden="true">${evt?.icon || '📅'}</span>
-            <div class="min-w-0 flex-1">
-              <p class="text-sm font-semibold text-navy-900">${evt?.label || row.eventType}</p>
-              <p class="text-xs text-navy-500">${row.note}</p>
+          <div class="rounded-2xl overflow-hidden ${tint}" style="border:1px solid var(--border)">
+            <div class="px-4 py-3" style="border-bottom:1px solid var(--border)">
+              <p class="text-xs font-bold uppercase tracking-wider" style="color:var(--accent)">${day.dayLabel} · ${day.date.slice(5).replace('-', '/')}</p>
+              <p class="font-bold text-lg mt-0.5">${day.title}</p>
             </div>
-            <span class="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-lg border font-semibold shrink-0 ${cat?.badgeClass || ''}">
-              <span aria-hidden="true">${cat?.icon || ''}</span>${cat?.shortLabel || row.dressCodeCategory}
-            </span>
+            <div class="p-3 space-y-2">${events}</div>
           </div>`;
       }).join('');
 
       return `
-        <section class="mb-8" aria-labelledby="dress-code-heading">
-          <h2 id="dress-code-heading" class="text-lg font-bold text-navy-900 mb-1 flex items-center gap-2">
-            <span class="w-1 h-5 rounded-full bg-gold-500"></span>Dress Code
-          </h2>
-          <p class="text-sm text-navy-500 mb-3">Tap any schedule event for event-specific guidance. Reference below:</p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">${overviewCards}</div>
-          <h3 class="text-sm font-bold text-navy-800 mb-2 flex items-center gap-2">
-            <span class="text-base" aria-hidden="true">🗂️</span>Event Type Quick Reference
-          </h3>
-          <div class="space-y-2">${mapRows}</div>
+        <section aria-labelledby="schedule-h">
+          <h2 id="schedule-h" class="text-sm font-bold uppercase tracking-wider mb-3" style="color:var(--text-muted)">Schedule</h2>
+          <div class="space-y-4">${days}</div>
         </section>`;
     }
 
-    function renderSection(title, items, actionPrefix) {
-      const cards = items.map((item, idx) =>
-        cardButton(
-          { data: `data-action="${actionPrefix}" data-index="${idx}"`, aria: `${item.title}: ${item.summary}` },
-          `<div class="flex items-center gap-3">
-            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-navy-50" aria-hidden="true">${item.icon}</span>
-            <div class="min-w-0 flex-1"><p class="font-semibold text-navy-900">${item.title}</p><p class="text-sm text-navy-500 mt-0.5">${item.summary}</p></div>
-            <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>`
-        )
-      ).join('');
+    function renderMoreContent() {
+      const dressCards = CONFERENCE_DATA.dressCode.map((item, i) => `
+        <button type="button" data-more-action="dress" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px]" style="background:var(--surface-elevated);border:1px solid var(--border)">
+          <p class="font-semibold">${item.title}</p>
+          <p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
+        </button>`).join('');
 
-      return `
-        <section class="mb-8" aria-labelledby="${actionPrefix}-heading">
-          <h2 id="${actionPrefix}-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
-            <span class="w-1 h-5 rounded-full bg-gold-500"></span>${title}
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
-        </section>`;
-    }
+      const mapRows = CONFERENCE_DATA.eventTypeDressMap.map((row) => {
+        const evt = CONFERENCE_DATA.eventTypes[row.eventType];
+        const cat = CONFERENCE_DATA.dressCodeCategories[row.dressCodeCategory];
+        return `<div class="flex items-center justify-between gap-3 py-2.5 text-sm" style="border-bottom:1px solid var(--border)">
+          <div><span class="font-medium">${evt?.label}</span><span class="block text-xs" style="color:var(--text-faint)">${row.note}</span></div>
+          <span class="text-xs font-bold shrink-0" style="color:var(--accent)">${cat?.shortLabel}</span>
+        </div>`;
+      }).join('');
 
-    function renderQuickLinks() {
-      const cards = CONFERENCE_DATA.quickLinks.map((link, idx) => {
+      const infoCards = CONFERENCE_DATA.keyInfo.map((item, i) => `
+        <button type="button" data-more-action="info" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px]" style="background:var(--surface-elevated);border:1px solid var(--border)">
+          <p class="font-semibold">${item.title}</p>
+          <p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
+        </button>`).join('');
+
+      const links = CONFERENCE_DATA.quickLinks.map((link, i) => {
         if (link.url) {
-          return `<a href="${link.url}" ${link.external ? 'target="_blank" rel="noopener"' : ''}
-            class="card-btn flex items-center gap-3 bg-white rounded-2xl border border-navy-100 p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-gold-300 active:scale-[0.99] transition-all duration-200 min-h-[72px]">
-            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gold-50" aria-hidden="true">${link.icon}</span>
-            <div class="min-w-0 flex-1"><p class="font-semibold text-navy-900">${link.title}</p><p class="text-sm text-navy-500 mt-0.5">${link.summary}</p></div>
-            <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          return `<a href="${link.url}" target="_blank" rel="noopener" class="flex items-center justify-between p-4 rounded-xl min-h-[52px]" style="background:var(--surface-elevated);border:1px solid var(--border)">
+            <span class="font-semibold">${link.title}</span>
+            <svg class="w-4 h-4" style="color:var(--accent)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>`;
         }
-        return cardButton(
-          { data: `data-action="quick-link" data-index="${idx}"`, aria: link.title },
-          `<div class="flex items-center gap-3">
-            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gold-50" aria-hidden="true">${link.icon}</span>
-            <div class="min-w-0 flex-1"><p class="font-semibold text-navy-900">${link.title}</p><p class="text-sm text-navy-500 mt-0.5">${link.summary}</p></div>
-            <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>`
-        );
+        return `<button type="button" data-more-action="link" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px]" style="background:var(--surface-elevated);border:1px solid var(--border)">
+          <p class="font-semibold">${link.title}</p>
+        </button>`;
       }).join('');
 
       return `
-        <section class="mb-8" aria-labelledby="links-heading">
-          <h2 id="links-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
-            <span class="w-1 h-5 rounded-full bg-gold-500"></span>Quick Links
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
-        </section>`;
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--text-muted)">Dress Code</h3>
+          <div class="space-y-2">${dressCards}</div>
+          <div class="mt-4 rounded-xl p-3" style="background:var(--accent-soft)">
+            <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--accent)">Event type reference</p>
+            ${mapRows}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--text-muted)">Key Information</h3>
+          <div class="space-y-2">${infoCards}</div>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--text-muted)">Resources</h3>
+          <div class="space-y-2">${links}</div>
+        </div>`;
     }
 
-    function renderFooter() {
-      return `
-        <footer class="text-center pt-4 border-t border-navy-100">
-          <p class="text-xs text-navy-500">Last updated: ${CONFERENCE_DATA.lastUpdated}</p>
-          <p class="text-xs text-navy-400 mt-1 max-w-md mx-auto">Edit the <code class="text-navy-600 bg-navy-100 px-1 rounded">CONFERENCE_DATA</code> object — schedule blocks include <code class="text-navy-600 bg-navy-100 px-1 rounded">eventType</code>, <code class="text-navy-600 bg-navy-100 px-1 rounded">dressCodeCategory</code>, and <code class="text-navy-600 bg-navy-100 px-1 rounded">specificRules</code>.</p>
-          <p class="text-xs text-navy-400 mt-3">© ${new Date().getFullYear()} ACEYA North America</p>
-        </footer>`;
-    }
-
-    function getDressCodeModalContent(item) {
+    function getDressModalContent(item) {
       if (item.detail) return item.detail;
       if (item.categoryId) {
-        const cat = CONFERENCE_DATA.dressCodeCategories[item.categoryId];
-        if (!cat) return '<p>Details not available.</p>';
-        return `
-          <p class="font-semibold text-navy-900">${cat.label}</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            ${cat.guidelines.map((g) => `<li>${g}</li>`).join('')}
-          </ul>
-          <p class="mt-3 text-xs font-semibold uppercase tracking-wide text-navy-500">Please avoid</p>
-          <p class="mt-1 text-sm text-navy-600">${cat.avoid.join(' · ')}</p>`;
+        const c = CONFERENCE_DATA.dressCodeCategories[item.categoryId];
+        return `<p class="font-semibold">${c.label}</p><ul class="list-disc pl-5 mt-2 space-y-1">${c.guidelines.map((g) => `<li>${g}</li>`).join('')}</ul><p class="mt-3 text-sm" style="color:var(--text-faint)"><strong>Avoid:</strong> ${c.avoid}</p>`;
       }
-      return '<p>Details not available.</p>';
+      return '<p>Not available.</p>';
     }
 
     function render() {
+      const c = CONFERENCE_DATA.conference;
       app.innerHTML = `
-        <main id="main">
-          ${renderHeader()}
+        <header class="sticky top-0 z-20 px-4 pt-4 pb-3 backdrop-blur-md" style="background:color-mix(in srgb, var(--bg) 88%, transparent)">
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <h1 class="text-lg font-bold leading-tight">${c.name}</h1>
+              <p class="text-xs mt-0.5" style="color:var(--text-muted)">${c.subtitle} · ${c.dates} · ${c.location}</p>
+            </div>
+            <div id="header-controls" class="shrink-0 pt-0.5"></div>
+          </div>
+        </header>
+        <main id="main" class="px-4 pt-2">
           ${renderWhatsNext()}
           ${renderSchedule()}
-          ${renderDressCodeSection()}
-          ${renderSection('Key Information', CONFERENCE_DATA.keyInfo, 'key-info')}
-          ${renderQuickLinks()}
-          ${renderFooter()}
+          <footer class="text-center py-6 mt-4" style="border-top:1px solid var(--border)">
+            <p class="text-xs" style="color:var(--text-faint)">Last updated: ${CONFERENCE_DATA.lastUpdated}</p>
+            <p class="text-xs mt-1" style="color:var(--text-faint)">Edit <code class="px-1 rounded text-[10px]" style="background:var(--code-bg)">CONFERENCE_DATA</code> in index.html</p>
+          </footer>
         </main>`;
-      bindEvents();
+      renderHeaderControls();
+      bindMainEvents();
     }
 
-    function bindEvents() {
-      const daySelect = $('#day-select');
-      if (daySelect) {
-        daySelect.addEventListener('change', (e) => {
-          selectedDayIndex = parseInt(e.target.value, 10);
-          const section = document.querySelector('[aria-labelledby="whats-next-heading"]');
-          if (section) { section.outerHTML = renderWhatsNext(); bindEvents(); }
-        });
-      }
-
+    function bindMainEvents() {
       app.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-action]');
         if (!btn) return;
-        const action = btn.dataset.action;
-
-        if (action === 'whats-next-detail') {
-          const w = getWhatsNext();
+        if (btn.dataset.action === 'next-detail') {
+          const next = getNextEvent();
           openModal({
-            eyebrow: `${w.day.dayLabel} · ${w.featured.period}`,
-            title: w.featured.title,
-            bodyHtml: renderEventModalBody(w.featured, w.day),
+            eyebrow: `${next.day.dayLabel} · ${next.block.time}`,
+            title: next.block.title,
+            body: eventModalBody(next.block, next.day),
           });
-          return;
         }
-
-        if (action === 'schedule-day') {
-          const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
-          openModal({
-            eyebrow: formatDateLong(day.date),
-            title: `${day.dayLabel} — ${day.title}`,
-            bodyHtml: `<p class="text-sm text-navy-500 mb-3">${day.summary}</p>${day.blocks.map(renderDayBlockSummary).join('')}`,
-          });
-          return;
-        }
-
-        if (action === 'schedule-block') {
-          e.stopPropagation();
+        if (btn.dataset.action === 'event') {
           const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
           const block = day.blocks[parseInt(btn.dataset.block, 10)];
           openModal({
-            eyebrow: `${day.dayLabel} · ${formatDateLong(day.date)}`,
+            eyebrow: `${day.dayLabel}`,
             title: block.title,
-            bodyHtml: renderEventModalBody(block, day),
+            body: eventModalBody(block, day),
           });
-          return;
-        }
-
-        if (action === 'dress-code') {
-          const item = CONFERENCE_DATA.dressCode[parseInt(btn.dataset.index, 10)];
-          openModal({ eyebrow: 'Dress Code', title: item.title, bodyHtml: getDressCodeModalContent(item) });
-          return;
-        }
-
-        if (action === 'key-info') {
-          const item = CONFERENCE_DATA.keyInfo[parseInt(btn.dataset.index, 10)];
-          openModal({ eyebrow: 'Key Information', title: item.title, bodyHtml: item.detail });
-          return;
-        }
-
-        if (action === 'quick-link') {
-          const item = CONFERENCE_DATA.quickLinks[parseInt(btn.dataset.index, 10)];
-          openModal({ eyebrow: 'Quick Links', title: item.title, bodyHtml: item.detail });
         }
       });
     }
 
+    function bindMoreEvents() {
+      $('#more-body').addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-more-action]');
+        if (!btn) return;
+        const idx = parseInt(btn.dataset.index, 10);
+        if (btn.dataset.moreAction === 'dress') {
+          const item = CONFERENCE_DATA.dressCode[idx];
+          closeMore();
+          setTimeout(() => openModal({ eyebrow: 'Dress Code', title: item.title, body: getDressModalContent(item) }), 320);
+        }
+        if (btn.dataset.moreAction === 'info') {
+          const item = CONFERENCE_DATA.keyInfo[idx];
+          closeMore();
+          setTimeout(() => openModal({ eyebrow: 'Info', title: item.title, body: item.detail }), 320);
+        }
+        if (btn.dataset.moreAction === 'link') {
+          const item = CONFERENCE_DATA.quickLinks[idx];
+          closeMore();
+          setTimeout(() => openModal({ eyebrow: 'Resources', title: item.title, body: item.detail }), 320);
+        }
+      });
+    }
+
+    // ── Init ───────────────────────────────────────────────────────────────────
+    setTheme(getTheme());
     $('#modal-close').addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', closeModal);
+    $('#modal-backdrop').addEventListener('click', closeModal);
+    $('#more-close').addEventListener('click', closeMore);
+    $('#more-backdrop').addEventListener('click', closeMore);
+    $('#nav-more').addEventListener('click', openMore);
+    $('#nav-home').addEventListener('click', () => { closeMore(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modalRoot.classList.contains('hidden')) closeModal();
+      if (e.key !== 'Escape') return;
+      if (!$('#modal-root').classList.contains('hidden')) closeModal();
+      else if (!$('#more-root').classList.contains('hidden')) closeMore();
     });
 
     render();
+    setInterval(() => {
+      const section = document.querySelector('[aria-labelledby="whats-next"]');
+      if (section) section.outerHTML = renderWhatsNext();
+    }, 60000);
   </script>
 </body>
 </html>
