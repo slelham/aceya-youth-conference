@@ -4,197 +4,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="ACEYA Youth Conference — Detroit, July 3–8, 2026">
-  <meta name="theme-color" content="#0f1f3d" id="meta-theme">
+  <meta name="theme-color" content="#f7f8fa" id="meta-theme">
   <title>ACEYA Conference</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root, [data-theme="light"] {
-      --bg-base: #e8edf5;
-      --bg-orb-1: rgba(58, 106, 159, 0.22);
-      --bg-orb-2: rgba(196, 146, 46, 0.16);
-      --bg-orb-3: rgba(255, 255, 255, 0.9);
-      --text: #0f1f3d;
-      --text-muted: #4a5d78;
-      --text-faint: #7a8da8;
-      --accent: #b8862a;
-      --accent-glow: rgba(196, 146, 46, 0.35);
-      --glass: rgba(255, 255, 255, 0.58);
-      --glass-strong: rgba(255, 255, 255, 0.78);
-      --glass-border: rgba(255, 255, 255, 0.85);
-      --glass-edge: rgba(15, 31, 61, 0.06);
-      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(15,31,61,0.04);
-      --glass-shadow: 0 8px 32px rgba(15, 31, 61, 0.07), 0 2px 8px rgba(15, 31, 61, 0.04);
-      --glass-shadow-lg: 0 20px 50px rgba(15, 31, 61, 0.12);
-      --hero-glass: rgba(15, 31, 61, 0.72);
-      --modal-overlay: rgba(15, 31, 61, 0.45);
-      --pill-bg: rgba(255,255,255,0.45);
-      --pill-active: #0f1f3d;
-      --pill-active-text: #f8fafc;
-      --nav-glass: rgba(255,255,255,0.62);
-      --dress-tint: rgba(196, 146, 46, 0.12);
-      --code-bg: rgba(15,31,61,0.06);
-      --day-accents: #3a6a9f, #b8862a, #2d7a5a, #6b5b95, #c45c3a, #5a6a80;
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-alt: #f0f2f5;
+      --text: #111827;
+      --text-muted: #5b6472;
+      --text-faint: #8b939f;
+      --border: #e4e7ec;
+      --accent: #9a7424;
+      --accent-bg: #faf6ee;
+      --hero-bg: #152238;
+      --hero-text: #f7f8fa;
+      --modal-overlay: rgba(17, 24, 39, 0.4);
+      --pill-bg: #eef0f3;
+      --pill-active: #152238;
+      --pill-active-text: #f7f8fa;
+      --nav-glass: rgba(255, 255, 255, 0.82);
+      --next-ring: #9a7424;
+      --day-tints: #f4f7fb, #faf7f0, #f3f8f5, #f6f4fa, #faf5f2, #f4f5f7;
     }
     [data-theme="dark"] {
-      --bg-base: #070f1c;
-      --bg-orb-1: rgba(58, 106, 159, 0.28);
-      --bg-orb-2: rgba(232, 198, 118, 0.14);
-      --bg-orb-3: rgba(21, 45, 74, 0.5);
-      --text: #eef3fa;
-      --text-muted: #a8b8d0;
-      --text-faint: #6a7f9a;
-      --accent: #e8c676;
-      --accent-glow: rgba(232, 198, 118, 0.25);
-      --glass: rgba(21, 45, 74, 0.55);
-      --glass-strong: rgba(26, 53, 88, 0.72);
-      --glass-border: rgba(255, 255, 255, 0.14);
-      --glass-edge: rgba(255, 255, 255, 0.08);
-      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.15);
-      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
-      --glass-shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
-      --hero-glass: rgba(10, 21, 40, 0.82);
-      --modal-overlay: rgba(0, 0, 0, 0.62);
-      --pill-bg: rgba(30, 61, 99, 0.6);
-      --pill-active: #e8c676;
-      --pill-active-text: #0a1528;
-      --nav-glass: rgba(10, 21, 40, 0.72);
-      --dress-tint: rgba(232, 198, 118, 0.1);
-      --code-bg: rgba(255,255,255,0.08);
+      --bg: #0c1118;
+      --surface: #161d27;
+      --surface-alt: #1c2430;
+      --text: #eef1f5;
+      --text-muted: #9aa3b0;
+      --text-faint: #6b7585;
+      --border: #2a3340;
+      --accent: #d4b06a;
+      --accent-bg: #1f2835;
+      --hero-bg: #1a2433;
+      --hero-text: #eef1f5;
+      --modal-overlay: rgba(0, 0, 0, 0.55);
+      --pill-bg: #1c2430;
+      --pill-active: #d4b06a;
+      --pill-active-text: #0c1118;
+      --nav-glass: rgba(12, 17, 24, 0.88);
+      --next-ring: #d4b06a;
+      --day-tints: #141c28, #1a1c18, #141c1a, #18161c, #1c1816, #16181c;
     }
 
-    * { box-sizing: border-box; }
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      background: var(--bg-base);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
       min-height: 100dvh;
       -webkit-font-smoothing: antialiased;
     }
-    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
 
-    .ambient {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-    }
-    .ambient::before, .ambient::after {
-      content: ''; position: absolute; border-radius: 50%; filter: blur(80px);
-    }
-    .ambient::before {
-      width: 70vw; height: 70vw; top: -20%; left: -15%;
-      background: var(--bg-orb-1);
-    }
-    .ambient::after {
-      width: 55vw; height: 55vw; bottom: 10%; right: -20%;
-      background: var(--bg-orb-2);
-    }
-    .ambient-orb {
-      position: absolute; width: 40vw; height: 40vw; border-radius: 50%;
-      filter: blur(60px); background: var(--bg-orb-3);
-      top: 40%; left: 30%; opacity: 0.6;
+    .nav-bar {
+      background: var(--nav-glass);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-top: 1px solid var(--border);
     }
 
-    .glass {
-      background: var(--glass);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow), var(--glass-inset);
-    }
-    .glass-strong {
-      background: var(--glass-strong);
-      backdrop-filter: blur(24px) saturate(1.5);
-      -webkit-backdrop-filter: blur(24px) saturate(1.5);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow-lg), var(--glass-inset);
-    }
-    .glass-hero {
-      background: var(--hero-glass);
-      backdrop-filter: blur(28px) saturate(1.3);
-      -webkit-backdrop-filter: blur(28px) saturate(1.3);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--glass-shadow-lg), inset 0 1px 0 rgba(255,255,255,0.15);
-    }
-
-    .card-btn { transition: transform 0.18s ease, box-shadow 0.18s ease; }
-    .card-btn:active { transform: scale(0.985); }
+    .card-btn:active { opacity: 0.85; }
     .card-btn:focus-visible, .icon-btn:focus-visible, .nav-tab:focus-visible {
       outline: 2px solid var(--accent); outline-offset: 2px;
     }
 
-    .modal-panel { transform: translateY(24px) scale(0.97); opacity: 0; transition: transform 0.32s cubic-bezier(.22,1,.36,1), opacity 0.28s ease; }
-    .modal-panel.open { transform: translateY(0) scale(1); opacity: 1; }
-    .modal-backdrop { opacity: 0; transition: opacity 0.28s ease; }
+    .modal-panel { transform: translateY(12px); opacity: 0; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .modal-panel.open { transform: translateY(0); opacity: 1; }
+    .modal-backdrop { opacity: 0; transition: opacity 0.2s ease; }
     .modal-backdrop.open { opacity: 1; }
     .modal-open { overflow: hidden; }
 
-    .tab-panel { animation: fadeUp 0.35s cubic-bezier(.22,1,.36,1) both; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-tab.active {
-      color: var(--accent);
-      background: var(--glass-strong);
-      box-shadow: 0 0 20px var(--accent-glow), var(--glass-inset);
-      border: 1px solid var(--glass-border);
-    }
-
-    .theme-pill { background: var(--pill-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); }
-    .theme-pill button { transition: all 0.2s ease; }
-    .theme-pill button[aria-pressed="true"] {
-      background: var(--pill-active); color: var(--pill-active-text);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    .event-card.is-next { border-color: var(--accent) !important; box-shadow: 0 0 0 1px var(--accent-glow), var(--glass-shadow), var(--glass-inset); }
-    .event-time { font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+    .nav-tab.active { color: var(--accent); font-weight: 600; }
+    .theme-pill { background: var(--pill-bg); border: 1px solid var(--border); }
+    .theme-pill button[aria-pressed="true"] { background: var(--pill-active); color: var(--pill-active-text); }
+    .event-card.is-next { box-shadow: inset 0 0 0 2px var(--next-ring); }
+    .tabular { font-variant-numeric: tabular-nums; }
 
     @media (prefers-reduced-motion: reduce) {
-      *, .tab-panel, .modal-panel { animation: none !important; transition-duration: 0.01ms !important; }
+      *, .modal-panel { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
-<body class="pb-[88px]">
+<body class="pb-[72px]">
 
-  <div class="ambient" aria-hidden="true"><div class="ambient-orb"></div></div>
+  <div id="app" class="max-w-lg mx-auto"></div>
 
-  <div id="app" class="relative z-10 max-w-lg mx-auto"></div>
-
-  <!-- Event modal -->
   <div id="modal-root" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-backdrop" class="modal-backdrop absolute inset-0 backdrop-blur-md" style="background:var(--modal-overlay)" tabindex="-1"></div>
+    <div id="modal-backdrop" class="modal-backdrop absolute inset-0" style="background:var(--modal-overlay)" tabindex="-1"></div>
     <div class="relative flex items-end sm:items-center justify-center min-h-full p-4 pointer-events-none">
-      <div id="modal-panel" class="modal-panel glass-strong pointer-events-auto w-full max-w-lg rounded-3xl overflow-hidden max-h-[88vh] flex flex-col">
-        <div class="flex items-start justify-between gap-3 px-5 pt-5 pb-4" style="border-bottom:1px solid var(--glass-edge)">
+      <div id="modal-panel" class="modal-panel pointer-events-auto w-full max-w-lg rounded-2xl overflow-hidden max-h-[88vh] flex flex-col" style="background:var(--surface);border:1px solid var(--border)">
+        <div class="flex items-start justify-between gap-3 px-5 pt-5 pb-4" style="border-bottom:1px solid var(--border)">
           <div class="min-w-0">
-            <p id="modal-eyebrow" class="text-[10px] font-bold uppercase tracking-[0.14em] mb-1" style="color:var(--accent)"></p>
-            <h2 id="modal-title" class="font-display text-2xl font-semibold leading-tight"></h2>
+            <p id="modal-eyebrow" class="text-xs font-medium mb-1" style="color:var(--accent)"></p>
+            <h2 id="modal-title" class="text-lg font-semibold leading-snug"></h2>
           </div>
-          <button id="modal-close" type="button" aria-label="Close" class="icon-btn shrink-0 w-11 h-11 flex items-center justify-center rounded-2xl glass">
-            <svg class="w-5 h-5" style="color:var(--text-muted)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <button id="modal-close" type="button" aria-label="Close" class="icon-btn shrink-0 w-10 h-10 flex items-center justify-center rounded-full" style="background:var(--surface-alt);color:var(--text-muted)">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
-        <div id="modal-body" class="px-5 py-5 overflow-y-auto leading-relaxed space-y-3" style="color:var(--text-muted)"></div>
+        <div id="modal-body" class="px-5 py-5 overflow-y-auto leading-relaxed space-y-3 text-[15px]" style="color:var(--text-muted)"></div>
       </div>
     </div>
   </div>
 
-  <!-- Glass bottom nav -->
-  <nav class="fixed bottom-0 inset-x-0 z-30 px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2" aria-label="Main navigation">
-    <div class="max-w-lg mx-auto glass rounded-2xl p-1.5 flex gap-1" style="background:var(--nav-glass)">
-      <button type="button" id="tab-today" class="nav-tab active flex-1 flex flex-col items-center gap-0.5 py-2.5 min-h-[52px] rounded-xl text-xs font-semibold transition-all" data-tab="today">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+  <nav class="nav-bar fixed bottom-0 inset-x-0 z-30" aria-label="Main navigation">
+    <div class="max-w-lg mx-auto flex px-2 pb-[max(6px,env(safe-area-inset-bottom))] pt-1.5">
+      <button type="button" class="nav-tab active flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium" data-tab="today" aria-current="page">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         Today
       </button>
-      <button type="button" id="tab-schedule" class="nav-tab flex-1 flex flex-col items-center gap-0.5 py-2.5 min-h-[52px] rounded-xl text-xs font-semibold transition-all" style="color:var(--text-muted)" data-tab="schedule">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      <button type="button" class="nav-tab flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium" style="color:var(--text-faint)" data-tab="schedule">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Schedule
       </button>
-      <button type="button" id="tab-more" class="nav-tab flex-1 flex flex-col items-center gap-0.5 py-2.5 min-h-[52px] rounded-xl text-xs font-semibold transition-all" style="color:var(--text-muted)" data-tab="more">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M5 12h.01M12 12h.01M19 12h.01"/></svg>
+      <button type="button" class="nav-tab flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium" style="color:var(--text-faint)" data-tab="more">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01"/></svg>
         More
       </button>
     </div>
@@ -274,7 +202,7 @@
           { time: '7:00 – 9:30 PM', title: 'Talent & Fellowship Night', location: 'Main hall', detail: 'Youth-led talent showcase and fellowship.', eventType: 'social', dressCodeCategory: 'modest-casual', specificRules: ['Modest attire when performing'] },
         ]},
         { id: 'day4', date: '2026-07-06', title: 'Day of Worship', blocks: [
-          { time: '9:00 AM – 12:00 PM', title: 'Sunday Holy Qurbana', location: 'Church / chapel', detail: 'Central worship of the conference week. All attendees expected.', eventType: 'liturgy', dressCodeCategory: 'church-service', specificRules: ['No shorts during Holy Qurbana', 'Sunday best required', 'Arrive on time'] },
+          { time: '9:00 AM – 12:00 PM', title: 'Holy Qurbana', location: 'Church / chapel', detail: 'Central worship of the conference week. All attendees expected.', eventType: 'liturgy', dressCodeCategory: 'church-service', specificRules: ['No shorts during Holy Qurbana', 'Sunday best required', 'Arrive on time'] },
           { time: '1:00 – 5:00 PM', title: 'Rest & Reflection', location: 'Dorms & quiet areas', detail: 'Rest, journaling, optional quiet prayer.', eventType: 'social', dressCodeCategory: 'modest-casual', specificRules: ['Respect quiet hours in dorms'] },
           { time: '7:00 – 9:00 PM', title: 'Discussion Groups', location: 'Meeting rooms', detail: 'Guided discussions on conference themes.', eventType: 'workshop', dressCodeCategory: 'modest-casual', specificRules: ['Bring your journal'] },
         ]},
@@ -289,7 +217,7 @@
         ]},
       ],
       dressCode: [
-        { title: 'General Guidelines', summary: 'Modest, respectful, comfortable', detail: `<p>Dress to honor God and participate fully. When in doubt, choose the more modest option.</p><ul class="list-disc pl-5 mt-2 space-y-1"><li>Cover shoulders, midriff, and knees</li><li>Remove hats during services</li><li>Tap any event for specific dress code</li></ul>` },
+        { title: 'General Guidelines', summary: 'Modest, respectful, comfortable', detail: `<p>Dress to honor God and participate fully. When in doubt, choose the more modest option.</p><ul class="list-disc pl-5 mt-3 space-y-1"><li>Cover shoulders, midriff, and knees</li><li>Remove hats during services</li><li>Tap any event for specific dress code</li></ul>` },
         { title: 'Church Services', summary: 'Sunday best', categoryId: 'church-service' },
         { title: 'Casual & Activities', summary: 'Modest casual / activity wear', categoryId: 'modest-casual' },
         { title: 'Banquet', summary: 'Semi-formal', categoryId: 'semi-formal' },
@@ -303,7 +231,7 @@
       quickLinks: [
         { title: 'ACEYA Official Site', url: 'https://www.aceya.net/' },
         { title: 'Conference Info', url: 'https://www.aceya.net/conference' },
-        { title: 'Contact', detail: `<p>Contact your parish youth leader first. Visit <a href="https://www.aceya.net/" class="underline font-medium" style="color:var(--accent)" target="_blank" rel="noopener">aceya.net</a> for general inquiries.</p><p class="mt-2"><strong>Emergency:</strong> 911, then your youth leader.</p>` },
+        { title: 'Contact', detail: `<p>Contact your parish youth leader first. Visit <a href="https://www.aceya.net/" class="underline font-medium" style="color:var(--accent)" target="_blank" rel="noopener">aceya.net</a> for general inquiries.</p><p class="mt-3"><strong>Emergency:</strong> 911, then your youth leader.</p>` },
       ],
     };
     // ═══════════════════════════════════════════════════════════════════════════
@@ -312,19 +240,18 @@
     const app = $('#app');
     let lastFocus = null;
     let currentTab = 'today';
+    const DAY_TINTS = ['var(--day-tint-0)','var(--day-tint-1)','var(--day-tint-2)','var(--day-tint-3)','var(--day-tint-4)','var(--day-tint-5)'];
 
-    // ── Theme ──────────────────────────────────────────────────────────────────
     function getTheme() {
       return localStorage.getItem('aceya-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
     function setTheme(t) {
       document.documentElement.dataset.theme = t;
       localStorage.setItem('aceya-theme', t);
-      $('#meta-theme').content = t === 'dark' ? '#070f1c' : '#0f1f3d';
+      $('#meta-theme').content = t === 'dark' ? '#0c1118' : '#f7f8fa';
       renderHeaderControls();
     }
 
-    // ── Date / schedule helpers ───────────────────────────────────────────────
     function parseDate(str) { const [y,m,d] = str.split('-').map(Number); return new Date(y,m-1,d); }
     function getDayLabel(d) { return parseDate(d).toLocaleDateString('en-US', { weekday: 'long' }); }
     function todayStr() { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`; }
@@ -338,8 +265,7 @@
       const phase = getPhase();
       if (phase === 'before') return { day: CONFERENCE_DATA.schedule[0], dayIdx: 0 };
       if (phase === 'after') { const i = CONFERENCE_DATA.schedule.length - 1; return { day: CONFERENCE_DATA.schedule[i], dayIdx: i }; }
-      const ts = todayStr();
-      const idx = CONFERENCE_DATA.schedule.findIndex((d) => d.date === ts);
+      const idx = CONFERENCE_DATA.schedule.findIndex((d) => d.date === todayStr());
       const i = idx >= 0 ? idx : 0;
       return { day: CONFERENCE_DATA.schedule[i], dayIdx: i };
     }
@@ -359,8 +285,7 @@
       return h;
     }
     function getNextEvent() {
-      const now = new Date(); const phase = getPhase();
-      const events = getAllEvents();
+      const now = new Date(); const phase = getPhase(); const events = getAllEvents();
       if (phase === 'before') return events[0];
       if (phase === 'after') return events[events.length - 1];
       const ts = todayStr(); const nowMins = now.getHours()*60 + now.getMinutes();
@@ -373,78 +298,70 @@
       return events.find((e) => e.day.date > ts) || todayEv[todayEv.length-1];
     }
 
-    // ── UI fragments ─────────────────────────────────────────────────────────
-    function dressBadge(block) {
-      const c = getDressCat(block); if (!c) return '';
-      return `<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full" style="background:var(--dress-tint);color:var(--accent);border:1px solid var(--glass-edge)">${c.shortLabel}</span>`;
+    function dressLabel(block) {
+      const c = getDressCat(block);
+      return c ? `<span class="text-xs font-medium" style="color:var(--accent)">${c.shortLabel}</span>` : '';
     }
 
-    function dressBlock(block, { compact = false, hero = false } = {}) {
-      const c = getDressCat(block); const rules = getRules(block); if (!c) return '';
-      const rulesHtml = rules.length ? `<ul class="mt-2 space-y-1 ${compact?'text-xs':'text-sm'}">${rules.map(r=>`<li class="flex gap-2"><span style="color:var(--accent)">·</span>${r}</li>`).join('')}</ul>` : '';
-      const guideHtml = compact ? '' : `<ul class="mt-2 space-y-1 text-sm">${c.guidelines.map(g=>`<li class="flex gap-2"><span style="color:var(--accent)">✓</span>${g}</li>`).join('')}</ul><p class="mt-2 text-xs" style="color:var(--text-faint)">Avoid: ${c.avoid}</p>`;
-      const bg = hero ? 'rgba(255,255,255,0.08)' : 'var(--dress-tint)';
-      const border = hero ? 'rgba(255,255,255,0.14)' : 'var(--glass-edge)';
-      const labelColor = hero ? 'rgba(232,198,118,0.9)' : 'var(--accent)';
-      const textColor = hero ? 'rgba(255,255,255,0.92)' : 'var(--text)';
-      return `<div class="rounded-2xl p-3.5 mt-3" style="background:${bg};border:1px solid ${border}">
-        <p class="text-[10px] font-bold uppercase tracking-[0.12em]" style="color:${labelColor}">What to wear</p>
-        <p class="font-semibold mt-0.5 ${compact?'text-sm':'text-base'}" style="color:${textColor}">${c.label}</p>
-        ${guideHtml}${rules.length && compact ? `<p class="text-[10px] font-bold uppercase tracking-wider mt-2" style="color:${labelColor}">Notes</p>` : ''}${rulesHtml}
+    function dressBlock(block, { compact = false, onHero = false } = {}) {
+      const c = getDressCat(block); const rules = getRules(block);
+      if (!c) return '';
+      const rulesHtml = rules.length
+        ? `<ul class="mt-2 space-y-1 ${compact ? 'text-[13px]' : 'text-sm'}">${rules.map((r) => `<li>${r}</li>`).join('')}</ul>` : '';
+      const guideHtml = compact ? '' : `<ul class="mt-2 space-y-1 text-sm">${c.guidelines.map((g) => `<li>${g}</li>`).join('')}</ul><p class="mt-3 text-xs" style="color:var(--text-faint)">Avoid: ${c.avoid}</p>`;
+      const bg = onHero ? 'rgba(255,255,255,0.08)' : 'var(--accent-bg)';
+      const labelColor = onHero ? 'rgba(255,255,255,0.65)' : 'var(--text-faint)';
+      const textColor = onHero ? 'var(--hero-text)' : 'var(--text)';
+      return `<div class="rounded-xl p-4 mt-4" style="background:${bg}">
+        <p class="text-xs font-medium uppercase tracking-wide" style="color:${labelColor}">What to wear</p>
+        <p class="font-medium mt-1 ${compact ? 'text-[15px]' : 'text-base'}" style="color:${textColor}">${c.label}</p>
+        ${guideHtml}
+        ${rules.length && compact ? `<p class="text-xs font-medium mt-3" style="color:${labelColor}">Notes</p>` : ''}
+        ${rulesHtml}
       </div>`;
     }
 
     function eventCard(block, dayIdx, blockIdx, { isNext = false } = {}) {
       const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
       return `<button type="button" data-action="event" data-day="${dayIdx}" data-block="${blockIdx}"
-        class="card-btn event-card glass w-full text-left p-4 rounded-2xl min-h-[60px] ${isNext ? 'is-next' : ''}"
+        class="card-btn event-card w-full text-left p-4 rounded-xl min-h-[56px] ${isNext ? 'is-next' : ''}"
+        style="background:var(--surface);border:1px solid var(--border)"
         aria-label="${block.title}, ${block.time}">
-        <div class="flex justify-between gap-3 items-start">
-          <div class="min-w-0 flex-1">
-            <p class="event-time text-xs font-medium" style="color:var(--text-faint)">${block.time}</p>
-            <p class="font-semibold mt-1 leading-snug">${block.title}</p>
-            <p class="text-xs mt-1.5 truncate" style="color:var(--text-muted)">${loc}</p>
-          </div>
-          <div class="shrink-0 flex flex-col items-end gap-2 pt-0.5">
-            ${dressBadge(block)}
-            <svg class="w-4 h-4" style="color:var(--text-faint)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
+        <p class="tabular text-[13px]" style="color:var(--text-faint)">${block.time}</p>
+        <p class="font-medium mt-1 leading-snug">${block.title}</p>
+        <div class="flex items-center justify-between gap-3 mt-2">
+          <p class="text-[13px] truncate" style="color:var(--text-muted)">${loc}</p>
+          ${dressLabel(block)}
         </div>
       </button>`;
     }
 
     function eventModalBody(block) {
       const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
-      return `<p class="text-sm font-semibold event-time" style="color:var(--accent)">${block.time}</p>
-        <p class="mt-4 flex items-start gap-2.5 text-sm font-medium" style="color:var(--text)">
-          <svg class="w-4 h-4 shrink-0 mt-0.5" style="color:var(--accent)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${loc}
-        </p><p class="mt-4">${block.detail}</p>${dressBlock(block)}`;
+      return `<p class="tabular text-sm font-medium" style="color:var(--accent)">${block.time}</p>
+        <p class="mt-4 text-sm font-medium" style="color:var(--text)">${loc}</p>
+        <p class="mt-4">${block.detail}</p>
+        ${dressBlock(block)}`;
     }
 
-    // ── Tab views ─────────────────────────────────────────────────────────────
     function renderWhatsNext() {
-      const next = getNextEvent();
-      const { day, block } = next;
+      const { day, block } = getNextEvent();
       const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
-      const badge = getPhase()==='before' ? 'Upcoming' : getPhase()==='after' ? 'Ended' : day.date===todayStr() ? 'Up next' : getDayLabel(day.date);
+      const phase = getPhase();
+      const label = phase === 'before' ? 'Upcoming' : phase === 'after' ? 'Ended' : day.date === todayStr() ? 'Up next' : getDayLabel(day.date);
 
-      return `<section class="mb-6" aria-labelledby="whats-next">
-        <div class="glass-hero rounded-3xl p-5 text-white relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-20" style="background:var(--accent);filter:blur(40px)" aria-hidden="true"></div>
-          <div class="relative">
-            <div class="flex items-center justify-between mb-4">
-              <h2 id="whats-next" class="text-[10px] font-bold uppercase tracking-[0.16em] text-white/70">What's Next</h2>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full glass" style="color:var(--accent)">${badge}</span>
-            </div>
-            <h3 class="font-display text-3xl font-semibold leading-[1.1] tracking-tight">${block.title}</h3>
-            <p class="event-time mt-2 text-sm text-white/65">${block.time}</p>
-            <p class="mt-3 text-sm text-white/80 leading-relaxed">${block.detail}</p>
-            <p class="mt-3 flex items-start gap-2 text-sm text-white/75">
-              <svg class="w-4 h-4 shrink-0 mt-0.5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${loc}
-            </p>
-            ${dressBlock(block, { compact: true, hero: true })}
-            <button type="button" data-action="next-detail" class="mt-4 w-full min-h-[48px] rounded-2xl text-sm font-bold tracking-wide" style="background:var(--accent);color:#0a1528">Full details</button>
+      return `<section class="mb-8" aria-labelledby="whats-next">
+        <div class="rounded-2xl p-5" style="background:var(--hero-bg);color:var(--hero-text)">
+          <div class="flex items-center justify-between mb-4">
+            <h2 id="whats-next" class="text-xs font-medium uppercase tracking-wide opacity-70">What's Next</h2>
+            <span class="text-xs font-medium px-2 py-0.5 rounded-md" style="background:rgba(255,255,255,0.1)">${label}</span>
           </div>
+          <h3 class="text-2xl font-semibold leading-tight tracking-tight">${block.title}</h3>
+          <p class="tabular mt-2 text-[15px] opacity-75">${block.time}</p>
+          <p class="mt-3 text-[15px] leading-relaxed opacity-85">${block.detail}</p>
+          <p class="mt-3 text-[15px] opacity-75">${loc}</p>
+          ${dressBlock(block, { compact: true, onHero: true })}
+          <button type="button" data-action="next-detail" class="mt-5 w-full min-h-[48px] rounded-xl text-sm font-semibold" style="background:var(--accent);color:#fff">View full details</button>
         </div>
       </section>`;
     }
@@ -453,92 +370,71 @@
       const { day, dayIdx } = getTodayDay();
       const next = getNextEvent();
       const blocks = day.blocks.filter((b) => b.time !== '—');
-      const phase = getPhase();
-      const dayHeader = phase === 'during' && day.date === todayStr()
+      const header = getPhase() === 'during' && day.date === todayStr()
         ? `Today · ${getDayLabel(day.date)}`
-        : `${getDayLabel(day.date)} · ${day.date.slice(5).replace('-','/')}`;
+        : `${getDayLabel(day.date)} · Jul ${parseInt(day.date.slice(8), 10)}`;
 
-      const agenda = blocks.map((block, blockIdx) => {
-        const isNext = next.dayIdx === dayIdx && next.blockIdx === blockIdx;
-        return eventCard(block, dayIdx, blockIdx, { isNext });
-      }).join('');
-
-      return `<div class="tab-panel">
-        ${renderWhatsNext()}
+      return `${renderWhatsNext()}
         <section aria-labelledby="today-agenda">
-          <div class="flex items-end justify-between mb-3">
-            <div>
-              <h2 id="today-agenda" class="font-display text-xl font-semibold">${day.title}</h2>
-              <p class="text-xs mt-0.5 font-medium" style="color:var(--text-muted)">${dayHeader}</p>
-            </div>
-            <span class="text-xs font-bold px-2 py-1 rounded-full glass" style="color:var(--accent)">${blocks.length} events</span>
-          </div>
-          <div class="space-y-2.5">${agenda}</div>
-        </section>
-      </div>`;
+          <h2 id="today-agenda" class="text-base font-semibold">${day.title}</h2>
+          <p class="text-sm mt-0.5" style="color:var(--text-muted)">${header}</p>
+          <div class="mt-4 space-y-2">${blocks.map((block, i) => eventCard(block, dayIdx, i, { isNext: next.dayIdx === dayIdx && next.blockIdx === i })).join('')}</div>
+        </section>`;
     }
 
     function renderScheduleTab() {
-      const dayAccents = ['#3a6a9f','#b8862a','#2d7a5a','#6b5b95','#c45c3a','#5a6a80'];
+      const tints = getComputedStyle(document.documentElement);
       const days = CONFERENCE_DATA.schedule.map((day, dayIdx) => {
-        const accent = dayAccents[dayIdx % dayAccents.length];
+        const tintVar = `--day-tint-${dayIdx % 6}`;
         const events = day.blocks.filter((b) => b.time !== '—').map((block, blockIdx) => eventCard(block, dayIdx, blockIdx)).join('');
-        return `<div class="glass rounded-3xl overflow-hidden">
-          <div class="px-4 py-4 relative" style="border-bottom:1px solid var(--glass-edge)">
-            <div class="absolute left-0 top-3 bottom-3 w-1 rounded-r-full" style="background:${accent};opacity:0.85" aria-hidden="true"></div>
-            <p class="text-[10px] font-bold uppercase tracking-[0.14em] pl-3" style="color:${accent}">${getDayLabel(day.date)} · Jul ${parseInt(day.date.slice(8),10)}</p>
-            <p class="font-display text-xl font-semibold mt-1 pl-3">${day.title}</p>
+        return `<div class="rounded-2xl overflow-hidden" style="background:var(${tintVar});border:1px solid var(--border)">
+          <div class="px-4 py-4" style="border-bottom:1px solid var(--border)">
+            <p class="text-xs font-medium" style="color:var(--text-muted)">${getDayLabel(day.date)} · Jul ${parseInt(day.date.slice(8), 10)}</p>
+            <p class="text-base font-semibold mt-1">${day.title}</p>
           </div>
           <div class="p-3 space-y-2">${events}</div>
         </div>`;
       }).join('');
 
-      return `<div class="tab-panel">
-        <h2 class="font-display text-2xl font-semibold mb-1">Full Schedule</h2>
-        <p class="text-sm mb-5" style="color:var(--text-muted)">July 3–8 · Detroit</p>
+      return `<section>
+        <h2 class="text-base font-semibold">Full Schedule</h2>
+        <p class="text-sm mt-0.5 mb-5" style="color:var(--text-muted)">July 3–8 · Detroit</p>
         <div class="space-y-4">${days}</div>
-      </div>`;
+      </section>`;
     }
 
     function renderMoreTab() {
-      const dressCards = CONFERENCE_DATA.dressCode.map((item,i) => `
-        <button type="button" data-more-action="dress" data-index="${i}" class="card-btn glass w-full text-left p-4 rounded-2xl min-h-[52px]">
-          <p class="font-semibold">${item.title}</p><p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
+      const section = (title, html) => `<div class="mb-8"><h3 class="text-xs font-medium uppercase tracking-wide mb-3" style="color:var(--text-muted)">${title}</h3>${html}</div>`;
+
+      const dressCards = CONFERENCE_DATA.dressCode.map((item, i) => `
+        <button type="button" data-more-action="dress" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px] mb-2" style="background:var(--surface);border:1px solid var(--border)">
+          <p class="font-medium">${item.title}</p>
+          <p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
         </button>`).join('');
 
       const mapRows = CONFERENCE_DATA.eventTypeDressMap.map((row) => {
         const evt = CONFERENCE_DATA.eventTypes[row.eventType];
         const cat = CONFERENCE_DATA.dressCodeCategories[row.dressCodeCategory];
-        return `<div class="flex items-center justify-between gap-3 py-2.5 text-sm" style="border-bottom:1px solid var(--glass-edge)">
-          <div><span class="font-medium">${evt?.label}</span><span class="block text-xs" style="color:var(--text-faint)">${row.note}</span></div>
-          <span class="text-[10px] font-bold uppercase shrink-0" style="color:var(--accent)">${cat?.shortLabel}</span>
+        return `<div class="flex justify-between gap-4 py-3 text-sm" style="border-bottom:1px solid var(--border)">
+          <div><span class="font-medium">${evt?.label}</span><span class="block text-xs mt-0.5" style="color:var(--text-faint)">${row.note}</span></div>
+          <span class="text-xs font-medium shrink-0" style="color:var(--accent)">${cat?.shortLabel}</span>
         </div>`;
       }).join('');
 
-      const infoCards = CONFERENCE_DATA.keyInfo.map((item,i) => `
-        <button type="button" data-more-action="info" data-index="${i}" class="card-btn glass w-full text-left p-4 rounded-2xl min-h-[52px]">
-          <p class="font-semibold">${item.title}</p><p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
+      const infoCards = CONFERENCE_DATA.keyInfo.map((item, i) => `
+        <button type="button" data-more-action="info" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px] mb-2" style="background:var(--surface);border:1px solid var(--border)">
+          <p class="font-medium">${item.title}</p>
+          <p class="text-sm mt-0.5" style="color:var(--text-muted)">${item.summary}</p>
         </button>`).join('');
 
-      const links = CONFERENCE_DATA.quickLinks.map((link,i) => link.url
-        ? `<a href="${link.url}" target="_blank" rel="noopener" class="flex items-center justify-between glass p-4 rounded-2xl min-h-[52px]">
-            <span class="font-semibold">${link.title}</span>
-            <svg class="w-4 h-4" style="color:var(--accent)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>`
-        : `<button type="button" data-more-action="link" data-index="${i}" class="card-btn glass w-full text-left p-4 rounded-2xl min-h-[52px]"><p class="font-semibold">${link.title}</p></button>`
+      const links = CONFERENCE_DATA.quickLinks.map((link, i) => link.url
+        ? `<a href="${link.url}" target="_blank" rel="noopener" class="flex items-center justify-between p-4 rounded-xl min-h-[52px] mb-2" style="background:var(--surface);border:1px solid var(--border)"><span class="font-medium">${link.title}</span><span class="text-sm" style="color:var(--accent)">→</span></a>`
+        : `<button type="button" data-more-action="link" data-index="${i}" class="card-btn w-full text-left p-4 rounded-xl min-h-[52px] mb-2" style="background:var(--surface);border:1px solid var(--border)"><p class="font-medium">${link.title}</p></button>`
       ).join('');
 
-      return `<div class="tab-panel">
-        <h2 class="font-display text-2xl font-semibold mb-5">More</h2>
-        <div class="space-y-6">
-          <section><h3 class="text-[10px] font-bold uppercase tracking-[0.14em] mb-2.5" style="color:var(--text-muted)">Dress Code</h3>
-            <div class="space-y-2">${dressCards}</div>
-            <div class="glass rounded-2xl p-4 mt-3"><p class="text-[10px] font-bold uppercase tracking-wider mb-2" style="color:var(--accent)">Event type reference</p>${mapRows}</div>
-          </section>
-          <section><h3 class="text-[10px] font-bold uppercase tracking-[0.14em] mb-2.5" style="color:var(--text-muted)">Key Information</h3><div class="space-y-2">${infoCards}</div></section>
-          <section><h3 class="text-[10px] font-bold uppercase tracking-[0.14em] mb-2.5" style="color:var(--text-muted)">Resources</h3><div class="space-y-2">${links}</div></section>
-        </div>
-      </div>`;
+      return `${section('Dress Code', dressCards + `<div class="rounded-xl p-4 mt-2" style="background:var(--surface-alt)">${mapRows}</div>`)}
+        ${section('Key Information', infoCards)}
+        ${section('Resources', links)}`;
     }
 
     function renderTabContent() {
@@ -552,7 +448,7 @@
       document.querySelectorAll('.nav-tab').forEach((btn) => {
         const active = btn.dataset.tab === tab;
         btn.classList.toggle('active', active);
-        btn.style.color = active ? '' : 'var(--text-muted)';
+        btn.style.color = active ? '' : 'var(--text-faint)';
         btn.setAttribute('aria-current', active ? 'page' : null);
       });
       $('#tab-content').innerHTML = renderTabContent();
@@ -560,7 +456,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ── Modal ────────────────────────────────────────────────────────────────
     function openModal({ eyebrow, title, body }) {
       lastFocus = document.activeElement;
       $('#modal-eyebrow').textContent = eyebrow || '';
@@ -575,27 +470,26 @@
     function closeModal() {
       $('#modal-backdrop').classList.remove('open');
       $('#modal-panel').classList.remove('open');
-      setTimeout(() => { $('#modal-root').classList.add('hidden'); document.body.classList.remove('modal-open'); lastFocus?.focus(); }, 280);
+      setTimeout(() => { $('#modal-root').classList.add('hidden'); document.body.classList.remove('modal-open'); lastFocus?.focus(); }, 200);
     }
     function getDressModalContent(item) {
       if (item.detail) return item.detail;
       if (item.categoryId) {
         const c = CONFERENCE_DATA.dressCodeCategories[item.categoryId];
-        return `<p class="font-semibold">${c.label}</p><ul class="list-disc pl-5 mt-2 space-y-1">${c.guidelines.map(g=>`<li>${g}</li>`).join('')}</ul><p class="mt-3 text-sm" style="color:var(--text-faint)">Avoid: ${c.avoid}</p>`;
+        return `<p class="font-medium">${c.label}</p><ul class="list-disc pl-5 mt-3 space-y-1">${c.guidelines.map((g) => `<li>${g}</li>`).join('')}</ul><p class="mt-4 text-sm" style="color:var(--text-faint)">Avoid: ${c.avoid}</p>`;
       }
       return '<p>Not available.</p>';
     }
 
-    // ── Shell render ─────────────────────────────────────────────────────────
     function renderHeaderControls() {
       const theme = getTheme();
       const el = $('#header-controls'); if (!el) return;
       el.innerHTML = `<div class="theme-pill flex rounded-full p-0.5">
-        <button type="button" data-theme-set="light" aria-pressed="${theme==='light'}" aria-label="Day mode" class="flex items-center justify-center w-9 h-9 rounded-full">
-          <svg class="w-[17px] h-[17px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <button type="button" data-theme-set="light" aria-pressed="${theme==='light'}" aria-label="Day mode" class="flex items-center justify-center w-8 h-8 rounded-full">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         </button>
-        <button type="button" data-theme-set="dark" aria-pressed="${theme==='dark'}" aria-label="Night mode" class="flex items-center justify-center w-9 h-9 rounded-full">
-          <svg class="w-[17px] h-[17px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <button type="button" data-theme-set="dark" aria-pressed="${theme==='dark'}" aria-label="Night mode" class="flex items-center justify-center w-8 h-8 rounded-full">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
       </div>`;
       el.querySelectorAll('[data-theme-set]').forEach((btn) => btn.addEventListener('click', () => setTheme(btn.dataset.themeSet)));
@@ -603,21 +497,28 @@
 
     function render() {
       const c = CONFERENCE_DATA.conference;
+      // Inject day tint CSS variables
+      const tints = getComputedStyle(document.documentElement);
+      const root = document.documentElement;
+      const lightTints = ['#f4f7fb','#faf7f0','#f3f8f5','#f6f4fa','#faf5f2','#f4f5f7'];
+      const darkTints = ['#141c28','#1a1c18','#141c1a','#18161c','#1c1816','#16181c'];
+      const isDark = getTheme() === 'dark';
+      lightTints.forEach((_, i) => root.style.setProperty(`--day-tint-${i}`, isDark ? darkTints[i] : lightTints[i]));
+
       app.innerHTML = `
-        <header class="sticky top-0 z-20 px-5 pt-5 pb-3">
-          <div class="glass rounded-2xl px-4 py-3.5 flex items-start justify-between gap-3">
-            <div class="min-w-0 pt-0.5">
-              <p class="text-[10px] font-bold uppercase tracking-[0.14em]" style="color:var(--accent)">${c.subtitle}</p>
-              <h1 class="font-display text-2xl font-semibold leading-tight mt-0.5">${c.name}</h1>
-              <p class="text-xs mt-1 font-medium" style="color:var(--text-muted)">${c.dates} · ${c.location}</p>
+        <header class="sticky top-0 z-20 px-5 pt-4 pb-3" style="background:var(--bg)">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <p class="text-xs font-medium" style="color:var(--accent)">${c.subtitle}</p>
+              <h1 class="text-xl font-semibold tracking-tight mt-0.5">${c.name}</h1>
+              <p class="text-sm mt-1" style="color:var(--text-muted)">${c.dates} · ${c.location}</p>
             </div>
-            <div id="header-controls" class="shrink-0"></div>
+            <div id="header-controls" class="shrink-0 pt-1"></div>
           </div>
         </header>
-        <main id="tab-content" class="px-5 pt-2 pb-4">${renderTabContent()}</main>
-        <footer class="text-center px-5 py-6">
-          <p class="text-[11px]" style="color:var(--text-faint)">Last updated ${CONFERENCE_DATA.lastUpdated}</p>
-          <p class="text-[10px] mt-1" style="color:var(--text-faint)">Edit <code class="px-1 rounded" style="background:var(--code-bg)">CONFERENCE_DATA</code></p>
+        <main id="tab-content" class="px-5 pb-6">${renderTabContent()}</main>
+        <footer class="text-center px-5 pb-8">
+          <p class="text-xs" style="color:var(--text-faint)">Last updated ${CONFERENCE_DATA.lastUpdated}</p>
         </footer>`;
       renderHeaderControls();
       bindTabEvents();
@@ -625,50 +526,37 @@
 
     function bindTabEvents() {
       const root = $('#tab-content');
-      root.addEventListener('click', (e) => {
+      root.onclick = (e) => {
         const btn = e.target.closest('[data-action]');
-        if (!btn) return;
-        if (btn.dataset.action === 'next-detail') {
-          const n = getNextEvent();
-          openModal({ eyebrow: `${getDayLabel(n.day.date)} · ${n.block.time}`, title: n.block.title, body: eventModalBody(n.block) });
+        if (btn) {
+          if (btn.dataset.action === 'next-detail') {
+            const n = getNextEvent();
+            openModal({ eyebrow: `${getDayLabel(n.day.date)} · ${n.block.time}`, title: n.block.title, body: eventModalBody(n.block) });
+          }
+          if (btn.dataset.action === 'event') {
+            const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
+            const block = day.blocks[parseInt(btn.dataset.block, 10)];
+            openModal({ eyebrow: getDayLabel(day.date), title: block.title, body: eventModalBody(block) });
+          }
+          return;
         }
-        if (btn.dataset.action === 'event') {
-          const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day,10)];
-          const block = day.blocks[parseInt(btn.dataset.block,10)];
-          openModal({ eyebrow: getDayLabel(day.date), title: block.title, body: eventModalBody(block) });
+        const more = e.target.closest('[data-more-action]');
+        if (more) {
+          const idx = parseInt(more.dataset.index, 10);
+          if (more.dataset.moreAction === 'dress') openModal({ eyebrow: 'Dress Code', title: CONFERENCE_DATA.dressCode[idx].title, body: getDressModalContent(CONFERENCE_DATA.dressCode[idx]) });
+          if (more.dataset.moreAction === 'info') openModal({ eyebrow: 'Info', title: CONFERENCE_DATA.keyInfo[idx].title, body: CONFERENCE_DATA.keyInfo[idx].detail });
+          if (more.dataset.moreAction === 'link') openModal({ eyebrow: 'Resources', title: CONFERENCE_DATA.quickLinks[idx].title, body: CONFERENCE_DATA.quickLinks[idx].detail });
         }
-      });
-      root.querySelectorAll('[data-more-action]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.dataset.index,10);
-          if (btn.dataset.moreAction === 'dress') {
-            const item = CONFERENCE_DATA.dressCode[idx];
-            openModal({ eyebrow: 'Dress Code', title: item.title, body: getDressModalContent(item) });
-          }
-          if (btn.dataset.moreAction === 'info') {
-            const item = CONFERENCE_DATA.keyInfo[idx];
-            openModal({ eyebrow: 'Info', title: item.title, body: item.detail });
-          }
-          if (btn.dataset.moreAction === 'link') {
-            const item = CONFERENCE_DATA.quickLinks[idx];
-            openModal({ eyebrow: 'Resources', title: item.title, body: item.detail });
-          }
-        });
-      });
+      };
     }
 
-    function refreshToday() {
-      if (currentTab === 'today') $('#tab-content').innerHTML = renderTodayTab(), bindTabEvents();
-    }
-
-    // ── Init ───────────────────────────────────────────────────────────────────
     setTheme(getTheme());
     document.querySelectorAll('.nav-tab').forEach((btn) => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
     $('#modal-close').addEventListener('click', closeModal);
     $('#modal-backdrop').addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#modal-root').classList.contains('hidden')) closeModal(); });
     render();
-    setInterval(refreshToday, 60000);
+    setInterval(() => { if (currentTab === 'today') { $('#tab-content').innerHTML = renderTodayTab(); bindTabEvents(); } }, 60000);
   </script>
 </body>
 </html>
