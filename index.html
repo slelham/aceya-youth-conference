@@ -220,7 +220,7 @@
 
       schedule: [
         {
-          id: 'day1', date: '2026-07-03', dayLabel: 'Thursday', title: 'Arrival & Welcome',
+          id: 'day1', date: '2026-07-03', title: 'Arrival & Welcome',
           blocks: [
             { time: '10:00 AM – 12:00 PM', title: 'Arrival & Check-In', location: 'Welcome desk / main lobby',
               detail: 'Register, collect badge, room assignment, and materials.',
@@ -237,7 +237,7 @@
           ],
         },
         {
-          id: 'day2', date: '2026-07-04', dayLabel: 'Friday', title: 'Faith & Community',
+          id: 'day2', date: '2026-07-04', title: 'Faith & Community',
           blocks: [
             { time: '8:30 – 11:30 AM', title: 'Morning Prayer & Workshops', location: 'Chapel & workshop rooms',
               detail: 'Morning prayers, then workshop tracks on faith and service.',
@@ -254,7 +254,7 @@
           ],
         },
         {
-          id: 'day3', date: '2026-07-05', dayLabel: 'Saturday', title: 'Service in Action',
+          id: 'day3', date: '2026-07-05', title: 'Service in Action',
           blocks: [
             { time: '8:30 – 11:30 AM', title: 'Morning Liturgy & Teaching', location: 'Church / chapel',
               detail: 'Holy Qurbana or morning prayer, then teaching session.',
@@ -271,7 +271,7 @@
           ],
         },
         {
-          id: 'day4', date: '2026-07-06', dayLabel: 'Sunday', title: 'Day of Worship',
+          id: 'day4', date: '2026-07-06', title: 'Day of Worship',
           blocks: [
             { time: '9:00 AM – 12:00 PM', title: 'Sunday Holy Qurbana', location: 'Church / chapel',
               detail: 'Central worship of the conference week. All attendees expected.',
@@ -288,7 +288,7 @@
           ],
         },
         {
-          id: 'day5', date: '2026-07-07', dayLabel: 'Monday', title: 'Leadership & Vision',
+          id: 'day5', date: '2026-07-07', title: 'Leadership & Vision',
           blocks: [
             { time: '8:30 – 11:30 AM', title: 'Leadership Plenary', location: 'Main hall',
               detail: 'Keynotes on youth leadership. Q&A with clergy and leaders.',
@@ -305,7 +305,7 @@
           ],
         },
         {
-          id: 'day6', date: '2026-07-08', dayLabel: 'Tuesday', title: 'Closing & Departure',
+          id: 'day6', date: '2026-07-08', title: 'Closing & Departure',
           blocks: [
             { time: '8:30 – 11:00 AM', title: 'Closing Service & Commissioning', location: 'Church / chapel',
               detail: 'Final prayer service and commissioning.',
@@ -366,6 +366,9 @@
     function parseDate(str) {
       const [y, m, d] = str.split('-').map(Number);
       return new Date(y, m - 1, d);
+    }
+    function getDayLabel(dateStr) {
+      return parseDate(dateStr).toLocaleDateString('en-US', { weekday: 'long' });
     }
     function todayStr() {
       const n = new Date();
@@ -522,9 +525,19 @@
       const el = $('#header-controls');
       if (!el) return;
       el.innerHTML = `
-        <div class="theme-pill flex rounded-full p-0.5 text-[11px] font-semibold">
-          <button type="button" data-theme-set="light" aria-pressed="${theme === 'light'}" class="px-2.5 py-1 rounded-full min-w-[44px] min-h-[32px]">Day</button>
-          <button type="button" data-theme-set="dark" aria-pressed="${theme === 'dark'}" class="px-2.5 py-1 rounded-full min-w-[44px] min-h-[32px]">Night</button>
+        <div class="theme-pill flex rounded-full p-0.5">
+          <button type="button" data-theme-set="light" aria-pressed="${theme === 'light'}" aria-label="Day mode"
+            class="flex items-center justify-center w-9 h-9 rounded-full">
+            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </button>
+          <button type="button" data-theme-set="dark" aria-pressed="${theme === 'dark'}" aria-label="Night mode"
+            class="flex items-center justify-center w-9 h-9 rounded-full">
+            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
         </div>`;
       el.querySelectorAll('[data-theme-set]').forEach((btn) => {
         btn.addEventListener('click', () => setTheme(btn.dataset.themeSet));
@@ -535,7 +548,7 @@
       const next = getNextEvent();
       const { day, block } = next;
       const phase = getPhase();
-      const badge = phase === 'before' ? 'Upcoming' : phase === 'after' ? 'Ended' : day.date === todayStr() ? 'Up next' : day.dayLabel;
+      const badge = phase === 'before' ? 'Upcoming' : phase === 'after' ? 'Ended' : day.date === todayStr() ? 'Up next' : getDayLabel(day.date);
       const loc = block.location || CONFERENCE_DATA.conference.defaultVenue;
 
       return `
@@ -546,7 +559,7 @@
               <span class="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-md" style="background:rgba(255,255,255,0.15)">${badge}</span>
             </div>
             <p class="text-2xl font-bold leading-tight">${block.title}</p>
-            <p class="mt-1 text-sm opacity-75">${block.time} · ${day.dayLabel}</p>
+            <p class="mt-1 text-sm opacity-75">${block.time} · ${getDayLabel(day.date)}</p>
             <p class="mt-3 text-sm opacity-90 leading-snug">${block.detail}</p>
             <p class="mt-3 flex items-start gap-2 text-sm font-medium" style="color:var(--accent)">
               <svg class="w-4 h-4 shrink-0 mt-0.5 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -586,7 +599,7 @@
         return `
           <div class="rounded-2xl overflow-hidden ${tint}" style="border:1px solid var(--border)">
             <div class="px-4 py-3" style="border-bottom:1px solid var(--border)">
-              <p class="text-xs font-bold uppercase tracking-wider" style="color:var(--accent)">${day.dayLabel} · ${day.date.slice(5).replace('-', '/')}</p>
+              <p class="text-xs font-bold uppercase tracking-wider" style="color:var(--accent)">${getDayLabel(day.date)} · ${day.date.slice(5).replace('-', '/')}</p>
               <p class="font-bold text-lg mt-0.5">${day.title}</p>
             </div>
             <div class="p-3 space-y-2">${events}</div>
@@ -693,7 +706,7 @@
         if (btn.dataset.action === 'next-detail') {
           const next = getNextEvent();
           openModal({
-            eyebrow: `${next.day.dayLabel} · ${next.block.time}`,
+            eyebrow: `${getDayLabel(next.day.date)} · ${next.block.time}`,
             title: next.block.title,
             body: eventModalBody(next.block, next.day),
           });
@@ -702,7 +715,7 @@
           const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
           const block = day.blocks[parseInt(btn.dataset.block, 10)];
           openModal({
-            eyebrow: `${day.dayLabel}`,
+            eyebrow: getDayLabel(day.date),
             title: block.title,
             body: eventModalBody(block, day),
           });
