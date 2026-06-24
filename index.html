@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Quick reference guide for the 38th Annual ACEYA Youth Conference — Detroit, MI, July 3–8, 2026.">
+  <meta name="theme-color" content="#0f1f3d">
+  <title>ACEYA Youth Conference 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50: '#f0f4fa',
+              100: '#dce6f3',
+              200: '#b8cde6',
+              300: '#8aadd4',
+              400: '#5a89be',
+              500: '#3a6a9f',
+              600: '#2a5280',
+              700: '#1e3d63',
+              800: '#152d4a',
+              900: '#0f1f3d',
+              950: '#0a1528',
+            },
+            gold: {
+              50: '#fdf9ef',
+              100: '#f9f0d6',
+              200: '#f2deab',
+              300: '#e8c676',
+              400: '#d4a843',
+              500: '#c4922e',
+              600: '#a67424',
+              700: '#855a20',
+              800: '#6e4922',
+              900: '#5c3d20',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    .modal-open { overflow: hidden; }
+    .card-btn:focus-visible {
+      outline: 2px solid #d4a843;
+      outline-offset: 2px;
+    }
+    .modal-panel {
+      transform: translateY(1rem) scale(0.98);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .modal-panel.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .modal-backdrop {
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.open { opacity: 1; }
+    .whats-next-glow {
+      background: linear-gradient(135deg, #0f1f3d 0%, #1e3d63 50%, #152d4a 100%);
+    }
+  </style>
+</head>
+<body class="bg-navy-50 text-navy-900 font-sans antialiased min-h-screen">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold-400 focus:text-navy-950 focus:rounded-lg focus:font-semibold">
+    Skip to content
+  </a>
+
+  <div id="app" class="max-w-3xl mx-auto px-4 sm:px-6 pb-10"></div>
+
+  <!-- Modal -->
+  <div id="modal-root" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-backdrop" class="modal-backdrop absolute inset-0 bg-navy-950/60 backdrop-blur-sm" tabindex="-1"></div>
+    <div class="relative flex items-end sm:items-center justify-center min-h-full p-4 sm:p-6 pointer-events-none">
+      <div id="modal-panel" class="modal-panel pointer-events-auto w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+        <div class="flex items-start justify-between gap-4 px-5 pt-5 pb-3 border-b border-navy-100">
+          <div class="min-w-0">
+            <p id="modal-eyebrow" class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-1"></p>
+            <h2 id="modal-title" class="text-xl font-bold text-navy-900 leading-tight"></h2>
+          </div>
+          <button id="modal-close" type="button" aria-label="Close dialog"
+            class="shrink-0 w-11 h-11 flex items-center justify-center rounded-xl bg-navy-50 text-navy-600 hover:bg-navy-100 active:bg-navy-200 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div id="modal-body" class="px-5 py-4 overflow-y-auto text-navy-700 leading-relaxed space-y-3"></div>
+        <div id="modal-footer" class="px-5 py-4 border-t border-navy-100 bg-navy-50/50 hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  EDIT ALL CONFERENCE CONTENT HERE — no need to touch HTML below this block
+    // ═══════════════════════════════════════════════════════════════════════════
+    const CONFERENCE_DATA = {
+      lastUpdated: 'June 23, 2026',
+
+      conference: {
+        name: '38th Annual ACEYA Youth Conference',
+        fullName: '38th Annual Assyrian Church of the East Youth Association Youth Conference',
+        dates: 'July 3–8, 2026',
+        dateStart: '2026-07-03',
+        dateEnd: '2026-07-08',
+        location: 'Detroit, MI',
+        venue: 'Host parish & conference facilities — Detroit metro area',
+        theme: 'A week of faith in action',
+        tagline: 'Shaping youth in the image of Christ',
+        organization: 'Assyrian Church of the East Youth Association — North America',
+      },
+
+      registration: {
+        status: 'Open',
+        statusNote: 'Registration is open. Have your parish info, contacts, and conference photo ready before you begin.',
+        url: 'https://sites.google.com/view/aceya/home',
+        requirements: [
+          'Youth parish information',
+          'Personal contact details',
+          'Emergency contact information',
+          'Conference photo (headshot)',
+        ],
+        deadline: 'Check the official site for the registration deadline',
+      },
+
+      // Schedule: one entry per day. "blocks" are Morning / Afternoon / Evening cards.
+      schedule: [
+        {
+          id: 'day1',
+          date: '2026-07-03',
+          dayLabel: 'Thursday',
+          title: 'Arrival & Welcome',
+          summary: 'Check-in, orientation, and opening fellowship',
+          blocks: [
+            { period: 'Morning', time: '10:00 AM – 12:00 PM', title: 'Arrival & Check-In', detail: 'Register at the welcome desk. Collect your name badge, room assignment, and conference materials. Luggage may be stored if rooms are not yet ready.' },
+            { period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Orientation & Parish Meetups', detail: 'Welcome session for all attendees. Parish groups reconnect and review the week ahead. Free time to settle in and explore the campus.' },
+            { period: 'Evening', time: '7:00 – 9:30 PM', title: 'Opening Service & Fellowship', detail: 'Opening prayer service to begin the conference in worship. Followed by icebreakers and informal fellowship. Casual attire.' },
+          ],
+        },
+        {
+          id: 'day2',
+          date: '2026-07-04',
+          dayLabel: 'Friday',
+          title: 'Faith & Community',
+          summary: 'Workshops, small groups, and evening worship',
+          blocks: [
+            { period: 'Morning', time: '8:30 – 11:30 AM', title: 'Morning Prayer & Workshops', detail: 'Begin with morning prayers. Break into workshop tracks on faith, service, and spiritual growth. Bring your Bible and notebook.' },
+            { period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Small Groups & Activities', detail: 'Age-based small group discussions. Outdoor recreation and team-building activities. Stay hydrated — summer weather in Detroit can be warm.' },
+            { period: 'Evening', time: '7:00 – 10:00 PM', title: 'Worship Night', detail: 'An evening of worship, testimony, and prayer. A highlight of the conference week. Modest, church-appropriate attire encouraged.' },
+          ],
+        },
+        {
+          id: 'day3',
+          date: '2026-07-05',
+          dayLabel: 'Saturday',
+          title: 'Service in Action',
+          summary: 'Community outreach and leadership sessions',
+          blocks: [
+            { period: 'Morning', time: '8:30 – 11:30 AM', title: 'Morning Liturgy & Teaching', detail: 'Holy Qurbana or morning prayer service (per schedule). Teaching session on putting faith into action in daily life.' },
+            { period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Community Service Project', detail: 'Hands-on service activity serving the local community. Wear comfortable clothes and closed-toe shoes. Sunscreen recommended.' },
+            { period: 'Evening', time: '7:00 – 9:30 PM', title: 'Talent & Fellowship Night', detail: 'Youth-led talent showcase and fellowship. Support your peers and enjoy an uplifting evening together.' },
+          ],
+        },
+        {
+          id: 'day4',
+          date: '2026-07-06',
+          dayLabel: 'Sunday',
+          title: 'Day of Worship',
+          summary: 'Sunday liturgy and rest',
+          blocks: [
+            { period: 'Morning', time: '9:00 AM – 12:00 PM', title: 'Sunday Holy Qurbana', detail: 'The central worship of the conference week. All attendees are expected to attend. Modest, respectful attire required — see Dress Code.' },
+            { period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Rest & Reflection', detail: 'A lighter afternoon for rest, personal reflection, journaling, and optional quiet prayer. Small group check-ins available.' },
+            { period: 'Evening', time: '7:00 – 9:00 PM', title: 'Discussion Groups', detail: 'Guided discussions on conference themes. Prepare to share what God has placed on your heart this week.' },
+          ],
+        },
+        {
+          id: 'day5',
+          date: '2026-07-07',
+          dayLabel: 'Monday',
+          title: 'Leadership & Vision',
+          summary: 'Plenary sessions and parish planning',
+          blocks: [
+            { period: 'Morning', time: '8:30 – 11:30 AM', title: 'Leadership Plenary', detail: 'Keynote sessions on youth leadership in the Church. Q&A with clergy and youth leaders.' },
+            { period: 'Afternoon', time: '1:00 – 5:00 PM', title: 'Parish Planning Workshops', detail: 'Parish delegations plan how to carry the conference spirit home. Practical tools for youth ministry throughout the year.' },
+            { period: 'Evening', time: '7:00 – 10:00 PM', title: 'Banquet & Awards', detail: 'Formal conference banquet. Recognition of youth leaders and contributors. Semi-formal attire — see Dress Code.' },
+          ],
+        },
+        {
+          id: 'day6',
+          date: '2026-07-08',
+          dayLabel: 'Tuesday',
+          title: 'Closing & Departure',
+          summary: 'Final worship and safe travels home',
+          blocks: [
+            { period: 'Morning', time: '8:30 – 11:00 AM', title: 'Closing Service & Commissioning', detail: 'Final prayer service. Commissioning of youth to live out the week\'s message at home. Tearful goodbyes and photo opportunities.' },
+            { period: 'Afternoon', time: '11:30 AM – 2:00 PM', title: 'Checkout & Departure', detail: 'Return room keys, collect belongings, and depart safely. Carpools and rides should be arranged in advance.' },
+            { period: 'Evening', time: '—', title: 'Travel Home', detail: 'Safe travels! Stay connected with your parish group and ACEYA throughout the year.' },
+          ],
+        },
+      ],
+
+      dressCode: [
+        {
+          id: 'general',
+          title: 'General Guidelines',
+          icon: '👔',
+          summary: 'Modest, respectful, and comfortable',
+          detail: `<p>ACEYA is a Christian youth conference. Please dress in a way that honors God, reflects modesty, and allows you to participate fully in worship and activities.</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Clothing should cover shoulders, midriff, and knees</li>
+              <li>Avoid overly tight, revealing, or distracting attire</li>
+              <li>Remove hats and hoods during church services</li>
+              <li>When in doubt, choose the more modest option</li>
+            </ul>`,
+        },
+        {
+          id: 'liturgy',
+          title: 'Church Services',
+          icon: '⛪',
+          summary: 'Modest formal / Sunday best',
+          detail: `<p>For Holy Qurbana, morning prayers, and evening worship services:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Young men:</strong> Dress pants and collared shirt; jacket optional</li>
+              <li><strong>Young women:</strong> Modest dress or skirt/blouse (knee-length or longer)</li>
+              <li>Clean, pressed clothing — this is a sacred time of worship</li>
+            </ul>`,
+        },
+        {
+          id: 'casual',
+          title: 'Casual Days & Activities',
+          icon: '👟',
+          summary: 'Comfortable and activity-ready',
+          detail: `<p>For workshops, recreation, service projects, and casual fellowship:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Jeans, khakis, or athletic pants with modest tops</li>
+              <li>Closed-toe shoes for service projects and outdoor activities</li>
+              <li>Conference t-shirt (if provided) is welcome on activity days</li>
+            </ul>`,
+        },
+        {
+          id: 'banquet',
+          title: 'Banquet Evening',
+          icon: '✨',
+          summary: 'Semi-formal attire',
+          detail: `<p>Monday evening banquet — dress up and celebrate together:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Young men:</strong> Dress pants, button-down shirt, optional tie or sport coat</li>
+              <li><strong>Young women:</strong> Semi-formal dress or modest dressy outfit</li>
+              <li>No jeans, shorts, or sneakers at the banquet</li>
+            </ul>`,
+        },
+        {
+          id: 'avoid',
+          title: 'Please Avoid',
+          icon: '🚫',
+          summary: 'Items not appropriate for conference',
+          detail: `<ul class="list-disc pl-5 space-y-1">
+              <li>Clothing with inappropriate graphics, slogans, or messaging</li>
+              <li>Revealing necklines, crop tops, or very short shorts</li>
+              <li>Flip-flops during service projects (safety hazard)</li>
+              <li>Excessive jewelry or accessories that distract in worship</li>
+            </ul>
+            <p class="mt-3 text-sm text-navy-500">Youth leaders may ask attendees to change if attire is not conference-appropriate.</p>`,
+        },
+      ],
+
+      keyInfo: [
+        {
+          id: 'accommodations',
+          title: 'Accommodations',
+          icon: '🏨',
+          summary: 'Lodging details for the week',
+          detail: `<p>Conference lodging is arranged through your parish delegation. Room assignments and check-in details will be provided by your youth leader before arrival.</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Bring bedding or sleeping bag if instructed by your parish</li>
+              <li>Respect quiet hours (typically 11:00 PM – 7:00 AM)</li>
+              <li>Keep rooms clean — you may be responsible for damages</li>
+              <li>Do not switch rooms without leader approval</li>
+            </ul>
+            <p class="mt-3 text-sm text-navy-500 italic">Update this section with your specific hotel/dorm name and address when confirmed.</p>`,
+        },
+        {
+          id: 'bring',
+          title: 'What to Bring',
+          icon: '🎒',
+          summary: 'Essential packing list',
+          detail: `<ul class="list-disc pl-5 space-y-1">
+              <li>Bible and notebook/journal</li>
+              <li>Modest clothing for all dress code categories</li>
+              <li>Personal toiletries and medications</li>
+              <li>Reusable water bottle</li>
+              <li>Phone charger and power bank</li>
+              <li>Sunscreen and insect repellent</li>
+              <li>Spending money for snacks and souvenirs</li>
+              <li>Positive attitude and an open heart</li>
+            </ul>`,
+        },
+        {
+          id: 'registration-info',
+          title: 'Registration',
+          icon: '📋',
+          summary: 'Open — register through the official site',
+          detail: `<p>Registration is handled online. Before you begin, have the following ready:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Youth parish information</li>
+              <li>Personal contact details</li>
+              <li>Emergency contact information</li>
+              <li>Conference photo (headshot)</li>
+            </ul>
+            <p class="mt-3">Register at the official ACEYA conference page. Contact your parish youth leader if you need help.</p>`,
+        },
+        {
+          id: 'notes',
+          title: 'Important Notes',
+          icon: '📌',
+          summary: 'Policies and expectations',
+          detail: `<ul class="list-disc pl-5 space-y-1">
+              <li>All attendees are expected to attend worship services</li>
+              <li>Follow your parish youth leader\'s guidance at all times</li>
+              <li>No alcohol, drugs, or vaping — conference is substance-free</li>
+              <li>Be respectful of clergy, volunteers, and fellow attendees</li>
+              <li>Cell phones on silent during services and sessions</li>
+              <li>Report any concerns immediately to a youth leader</li>
+            </ul>
+            <p class="mt-3 text-sm text-navy-500 italic">Add venue-specific rules, meal info, or transportation details here as they are confirmed.</p>`,
+        },
+      ],
+
+      quickLinks: [
+        {
+          id: 'register',
+          title: 'Register Now',
+          icon: '✅',
+          summary: 'Official registration page',
+          url: 'https://sites.google.com/view/aceya/home',
+          external: true,
+        },
+        {
+          id: 'official',
+          title: 'ACEYA Official Site',
+          icon: '🌐',
+          summary: 'aceya.net — news, galleries & more',
+          url: 'https://www.aceya.net/',
+          external: true,
+        },
+        {
+          id: 'conference-page',
+          title: 'Conference Info Page',
+          icon: '📄',
+          summary: 'Registration requirements & details',
+          url: 'https://www.aceya.net/conference',
+          external: true,
+        },
+        {
+          id: 'contact',
+          title: 'Contact & Emergency',
+          icon: '📞',
+          summary: 'Reach ACEYA leadership',
+          detail: `<p><strong>ACEYA North America</strong></p>
+            <p class="mt-2">For conference questions, contact your parish youth leader first. For general ACEYA inquiries, visit <a href="https://www.aceya.net/" class="text-gold-700 underline font-medium" target="_blank" rel="noopener">aceya.net</a> or message through official ACEYA social channels.</p>
+            <p class="mt-3"><strong>In an emergency:</strong> Call 911, then notify your youth leader immediately.</p>
+            <p class="mt-3 text-sm text-navy-500 italic">Add on-site emergency contact numbers and medical staff info when available.</p>`,
+        },
+      ],
+    };
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  END OF EDITABLE DATA — application logic below
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    const $ = (sel) => document.querySelector(sel);
+    const app = $('#app');
+    const modalRoot = $('#modal-root');
+    const modalBackdrop = $('#modal-backdrop');
+    const modalPanel = $('#modal-panel');
+    const modalEyebrow = $('#modal-eyebrow');
+    const modalTitle = $('#modal-title');
+    const modalBody = $('#modal-body');
+    const modalFooter = $('#modal-footer');
+    let lastFocus = null;
+    let selectedDayIndex = null;
+
+    function parseDate(str) {
+      const [y, m, d] = str.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function formatDateLong(str) {
+      return parseDate(str).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    }
+
+    function getConferencePhase() {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const start = parseDate(CONFERENCE_DATA.conference.dateStart);
+      const end = parseDate(CONFERENCE_DATA.conference.dateEnd);
+      end.setHours(23, 59, 59, 999);
+
+      if (today < start) return 'before';
+      if (today > end) return 'after';
+      return 'during';
+    }
+
+    function getActiveDayIndex() {
+      const phase = getConferencePhase();
+      if (phase === 'before') return 0;
+      if (phase === 'after') return CONFERENCE_DATA.schedule.length - 1;
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const idx = CONFERENCE_DATA.schedule.findIndex((day) => {
+        const d = parseDate(day.date);
+        return d.getTime() === today.getTime();
+      });
+      return idx >= 0 ? idx : 0;
+    }
+
+    function getWhatsNext() {
+      const phase = getConferencePhase();
+      const dayIdx = selectedDayIndex !== null ? selectedDayIndex : getActiveDayIndex();
+      const day = CONFERENCE_DATA.schedule[dayIdx];
+      const now = new Date();
+
+      if (phase === 'before') {
+        return {
+          phase,
+          day,
+          dayIdx,
+          headline: 'Conference begins soon',
+          subline: `${day.dayLabel}, ${formatDateLong(day.date)}`,
+          featured: day.blocks.find((b) => b.period === 'Evening') || day.blocks[0],
+          badge: 'Upcoming',
+        };
+      }
+
+      if (phase === 'after') {
+        return {
+          phase,
+          day,
+          dayIdx,
+          headline: 'Conference has concluded',
+          subline: 'Thank you for a blessed week',
+          featured: day.blocks[0],
+          badge: 'Completed',
+        };
+      }
+
+      const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+      const isToday = day.date === todayStr;
+      let featured = day.blocks[0];
+      let badge = isToday ? 'Today' : day.dayLabel;
+
+      if (isToday) {
+        const hour = now.getHours();
+        if (hour >= 17) featured = day.blocks.find((b) => b.period === 'Evening') || day.blocks[2];
+        else if (hour >= 12) featured = day.blocks.find((b) => b.period === 'Afternoon') || day.blocks[1];
+        else featured = day.blocks.find((b) => b.period === 'Morning') || day.blocks[0];
+      }
+
+      return {
+        phase,
+        day,
+        dayIdx,
+        headline: isToday ? `Today — ${day.title}` : `${day.dayLabel} — ${day.title}`,
+        subline: formatDateLong(day.date),
+        featured,
+        badge,
+      };
+    }
+
+    function openModal({ eyebrow, title, bodyHtml, footerHtml }) {
+      lastFocus = document.activeElement;
+      modalEyebrow.textContent = eyebrow || '';
+      modalEyebrow.classList.toggle('hidden', !eyebrow);
+      modalTitle.textContent = title;
+      modalBody.innerHTML = bodyHtml;
+      if (footerHtml) {
+        modalFooter.innerHTML = footerHtml;
+        modalFooter.classList.remove('hidden');
+      } else {
+        modalFooter.classList.add('hidden');
+        modalFooter.innerHTML = '';
+      }
+      modalRoot.classList.remove('hidden');
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(() => {
+        modalBackdrop.classList.add('open');
+        modalPanel.classList.add('open');
+      });
+      $('#modal-close').focus();
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('open');
+      modalPanel.classList.remove('open');
+      setTimeout(() => {
+        modalRoot.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+        if (lastFocus) lastFocus.focus();
+      }, 250);
+    }
+
+    function cardButton(attrs, innerHtml) {
+      return `<button type="button" class="card-btn w-full text-left bg-white rounded-2xl border border-navy-100 p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-gold-300 active:scale-[0.99] transition-all duration-200 ${attrs.class || ''}" ${attrs.data || ''} aria-label="${attrs.aria || ''}">${innerHtml}</button>`;
+    }
+
+    function periodIcon(period) {
+      const map = { Morning: '🌅', Afternoon: '☀️', Evening: '🌙' };
+      return map[period] || '📅';
+    }
+
+    function renderHeader() {
+      const c = CONFERENCE_DATA.conference;
+      return `
+        <header class="pt-6 pb-4 text-center">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-100 text-gold-800 text-xs font-semibold uppercase tracking-wider mb-4">
+            <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+            ${c.organization}
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-navy-900 leading-tight">${c.name}</h1>
+          <p class="mt-2 text-navy-600 text-sm sm:text-base">${c.fullName}</p>
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-3 text-sm font-medium">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-navy-100 text-navy-800">
+              <svg class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              ${c.dates}
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-navy-100 text-navy-800">
+              <svg class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              ${c.location}
+            </span>
+          </div>
+          <p class="mt-4 text-lg sm:text-xl font-semibold text-gold-700">"${c.theme}"</p>
+          <p class="mt-1 text-sm text-navy-500">${c.tagline}</p>
+        </header>`;
+    }
+
+    function renderWhatsNext() {
+      const w = getWhatsNext();
+      const reg = CONFERENCE_DATA.registration;
+      const dayOptions = CONFERENCE_DATA.schedule.map((d, i) =>
+        `<option value="${i}" ${i === w.dayIdx ? 'selected' : ''}>${d.dayLabel} — ${d.title}</option>`
+      ).join('');
+
+      return `
+        <section class="mb-6" aria-labelledby="whats-next-heading">
+          <div class="whats-next-glow rounded-2xl p-5 sm:p-6 text-white shadow-lg">
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <h2 id="whats-next-heading" class="text-sm font-semibold uppercase tracking-wider text-gold-300">What's Next</h2>
+              <span class="px-2.5 py-1 rounded-lg bg-gold-500/20 text-gold-200 text-xs font-bold uppercase tracking-wide">${w.badge}</span>
+            </div>
+            <p class="text-xl sm:text-2xl font-bold leading-tight">${w.headline}</p>
+            <p class="mt-1 text-navy-200 text-sm">${w.subline}</p>
+
+            <div class="mt-4 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/10">
+              <div class="flex items-start gap-3">
+                <span class="text-2xl" aria-hidden="true">${periodIcon(w.featured.period)}</span>
+                <div class="min-w-0 flex-1">
+                  <p class="text-gold-300 text-xs font-semibold uppercase tracking-wide">${w.featured.period} · ${w.featured.time}</p>
+                  <p class="mt-0.5 font-semibold text-lg">${w.featured.title}</p>
+                  <p class="mt-1 text-sm text-navy-200 line-clamp-2">${w.featured.detail}</p>
+                </div>
+              </div>
+              <button type="button" data-action="whats-next-detail"
+                class="mt-3 w-full sm:w-auto px-4 py-2.5 min-h-[44px] rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold text-sm transition-colors">
+                View details
+              </button>
+            </div>
+
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-2">
+              <label for="day-select" class="text-xs text-navy-300 shrink-0">Browse by day:</label>
+              <select id="day-select" class="flex-1 min-h-[44px] px-3 py-2 rounded-xl bg-navy-800 border border-navy-600 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gold-400">
+                ${dayOptions}
+              </select>
+            </div>
+
+            ${w.phase === 'before' ? `
+              <div class="mt-4 flex items-center gap-2 px-3 py-2 rounded-xl bg-gold-500/15 border border-gold-400/20">
+                <span class="text-gold-300 text-sm font-medium">Registration: ${reg.status}</span>
+                <a href="${reg.url}" target="_blank" rel="noopener" class="ml-auto text-xs font-semibold text-gold-300 underline hover:text-gold-200">Register →</a>
+              </div>` : ''}
+          </div>
+        </section>`;
+    }
+
+    function renderSchedule() {
+      const cards = CONFERENCE_DATA.schedule.map((day, dayIdx) => {
+        const blockCards = day.blocks.map((block, blockIdx) => ({ block, blockIdx }))
+          .filter(({ block }) => block.period !== 'Evening' || block.time !== '—')
+          .map(({ block, blockIdx }) =>
+          cardButton(
+            { class: '!p-3.5', data: `data-action="schedule-block" data-day="${dayIdx}" data-block="${blockIdx}"`, aria: `${day.dayLabel} ${block.period}: ${block.title}` },
+            `<div class="flex items-center gap-3">
+              <span class="text-xl shrink-0" aria-hidden="true">${periodIcon(block.period)}</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold text-gold-700 uppercase tracking-wide">${block.period}</p>
+                <p class="font-semibold text-navy-900 text-sm leading-snug">${block.title}</p>
+                <p class="text-xs text-navy-500 mt-0.5">${block.time}</p>
+              </div>
+              <svg class="w-4 h-4 text-navy-300 shrink-0 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>`
+          )
+        ).join('');
+
+        const dayBtn = cardButton(
+          { data: `data-action="schedule-day" data-day="${dayIdx}"`, aria: `View full schedule for ${day.dayLabel}` },
+          `<div class="flex items-center gap-3 mb-3 pb-3 border-b border-navy-50">
+            <div class="w-10 h-10 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-sm shrink-0">${day.dayLabel.slice(0, 3)}</div>
+            <div class="min-w-0">
+              <p class="font-bold text-navy-900">${day.dayLabel}</p>
+              <p class="text-sm text-navy-600">${day.title}</p>
+            </div>
+          </div>
+          <div class="space-y-2">${blockCards}</div>`
+        );
+
+        return `<div class="col-span-1">${dayBtn}</div>`;
+      }).join('');
+
+      return `
+        <section class="mb-8" aria-labelledby="schedule-heading">
+          <h2 id="schedule-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
+            <span class="w-1 h-5 rounded-full bg-gold-500"></span>
+            Schedule Overview
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
+        </section>`;
+    }
+
+    function renderSection(title, items, actionPrefix) {
+      const cards = items.map((item, idx) =>
+        cardButton(
+          { data: `data-action="${actionPrefix}" data-index="${idx}"`, aria: `${item.title}: ${item.summary}` },
+          `<div class="flex items-center gap-3">
+            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-navy-50" aria-hidden="true">${item.icon}</span>
+            <div class="min-w-0 flex-1">
+              <p class="font-semibold text-navy-900">${item.title}</p>
+              <p class="text-sm text-navy-500 mt-0.5">${item.summary}</p>
+            </div>
+            <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>`
+        )
+      ).join('');
+
+      return `
+        <section class="mb-8" aria-labelledby="${actionPrefix}-heading">
+          <h2 id="${actionPrefix}-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
+            <span class="w-1 h-5 rounded-full bg-gold-500"></span>
+            ${title}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
+        </section>`;
+    }
+
+    function renderQuickLinks() {
+      const cards = CONFERENCE_DATA.quickLinks.map((link, idx) => {
+        if (link.url) {
+          return `<a href="${link.url}" ${link.external ? 'target="_blank" rel="noopener"' : ''}
+            class="card-btn flex items-center gap-3 bg-white rounded-2xl border border-navy-100 p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-gold-300 active:scale-[0.99] transition-all duration-200 min-h-[72px]">
+            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gold-50" aria-hidden="true">${link.icon}</span>
+            <div class="min-w-0 flex-1">
+              <p class="font-semibold text-navy-900">${link.title}</p>
+              <p class="text-sm text-navy-500 mt-0.5">${link.summary}</p>
+            </div>
+            <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>`;
+        }
+        return cardButton(
+          { data: `data-action="quick-link" data-index="${idx}"`, aria: link.title },
+          `<div class="flex items-center gap-3">
+            <span class="text-2xl shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gold-50" aria-hidden="true">${link.icon}</span>
+            <div class="min-w-0 flex-1">
+              <p class="font-semibold text-navy-900">${link.title}</p>
+              <p class="text-sm text-navy-500 mt-0.5">${link.summary}</p>
+            </div>
+            <svg class="w-4 h-4 text-navy-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>`
+        );
+      }).join('');
+
+      return `
+        <section class="mb-8" aria-labelledby="links-heading">
+          <h2 id="links-heading" class="text-lg font-bold text-navy-900 mb-3 flex items-center gap-2">
+            <span class="w-1 h-5 rounded-full bg-gold-500"></span>
+            Quick Links
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${cards}</div>
+        </section>`;
+    }
+
+    function renderFooter() {
+      return `
+        <footer class="text-center pt-4 border-t border-navy-100">
+          <p class="text-xs text-navy-500">Last updated: ${CONFERENCE_DATA.lastUpdated}</p>
+          <p class="text-xs text-navy-400 mt-1 max-w-md mx-auto">
+            To edit content, open this file and update the <code class="text-navy-600 bg-navy-100 px-1 rounded">CONFERENCE_DATA</code> object near the top of the script.
+          </p>
+          <p class="text-xs text-navy-400 mt-3">© ${new Date().getFullYear()} ACEYA North America</p>
+        </footer>`;
+    }
+
+    function render() {
+      app.innerHTML = `
+        <main id="main">
+          ${renderHeader()}
+          ${renderWhatsNext()}
+          ${renderSchedule()}
+          ${renderSection('Dress Code', CONFERENCE_DATA.dressCode, 'dress-code')}
+          ${renderSection('Key Information', CONFERENCE_DATA.keyInfo, 'key-info')}
+          ${renderQuickLinks()}
+          ${renderFooter()}
+        </main>`;
+      bindEvents();
+    }
+
+    function bindEvents() {
+      const daySelect = $('#day-select');
+      if (daySelect) {
+        daySelect.addEventListener('change', (e) => {
+          selectedDayIndex = parseInt(e.target.value, 10);
+          const whatsNextSection = document.querySelector('[aria-labelledby="whats-next-heading"]');
+          if (whatsNextSection) {
+            whatsNextSection.outerHTML = renderWhatsNext();
+            bindEvents();
+          }
+        });
+      }
+
+      app.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-action]');
+        if (!btn) return;
+
+        const action = btn.dataset.action;
+
+        if (action === 'whats-next-detail') {
+          const w = getWhatsNext();
+          const f = w.featured;
+          openModal({
+            eyebrow: `${w.day.dayLabel} · ${f.period}`,
+            title: f.title,
+            bodyHtml: `<p class="text-sm font-medium text-gold-700 mb-2">${f.time}</p><p>${f.detail}</p>
+              <p class="mt-4 text-sm text-navy-500">${w.day.summary}</p>`,
+          });
+          return;
+        }
+
+        if (action === 'schedule-day') {
+          const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
+          const blocks = day.blocks.map((b) =>
+            `<div class="py-3 border-b border-navy-100 last:border-0">
+              <p class="text-xs font-semibold text-gold-700 uppercase">${b.period} · ${b.time}</p>
+              <p class="font-semibold text-navy-900 mt-0.5">${b.title}</p>
+              <p class="text-sm mt-1">${b.detail}</p>
+            </div>`
+          ).join('');
+          openModal({
+            eyebrow: formatDateLong(day.date),
+            title: `${day.dayLabel} — ${day.title}`,
+            bodyHtml: `<p class="text-sm text-navy-500 mb-2">${day.summary}</p>${blocks}`,
+          });
+          return;
+        }
+
+        if (action === 'schedule-block') {
+          e.stopPropagation();
+          const day = CONFERENCE_DATA.schedule[parseInt(btn.dataset.day, 10)];
+          const block = day.blocks[parseInt(btn.dataset.block, 10)];
+          openModal({
+            eyebrow: `${day.dayLabel} · ${formatDateLong(day.date)}`,
+            title: block.title,
+            bodyHtml: `<p class="text-sm font-medium text-gold-700 mb-2">${block.period} · ${block.time}</p><p>${block.detail}</p>`,
+          });
+          return;
+        }
+
+        if (action === 'dress-code') {
+          const item = CONFERENCE_DATA.dressCode[parseInt(btn.dataset.index, 10)];
+          openModal({ eyebrow: 'Dress Code', title: item.title, bodyHtml: item.detail });
+          return;
+        }
+
+        if (action === 'key-info') {
+          const item = CONFERENCE_DATA.keyInfo[parseInt(btn.dataset.index, 10)];
+          openModal({ eyebrow: 'Key Information', title: item.title, bodyHtml: item.detail });
+          return;
+        }
+
+        if (action === 'quick-link') {
+          const item = CONFERENCE_DATA.quickLinks[parseInt(btn.dataset.index, 10)];
+          openModal({ eyebrow: 'Quick Links', title: item.title, bodyHtml: item.detail });
+        }
+      });
+    }
+
+    $('#modal-close').addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modalRoot.classList.contains('hidden')) closeModal();
+    });
+
+    render();
+  </script>
+</body>
+</html>
